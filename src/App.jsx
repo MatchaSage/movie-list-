@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./style.css";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
+import List from "./Components/List";
+import MovieInfo from "./Components/MovieInfo";
 import Footer from "./Components/Footer";
 
 export default function App() {
@@ -10,7 +12,9 @@ export default function App() {
   return (
     <div className="app">
       <Header />
-      <Home />
+      {showHome && <Home />}
+      {!showHome && <List />}
+      <MovieInfo />
       <Footer />
     </div>
   );
