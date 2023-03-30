@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import React, { useEffect } from "react";
-
-export default function Home(props) {
-  return <div>Home</div>;
-=======
 import React from "react";
 
 export default function Home(props) {
@@ -18,5 +12,4 @@ export default function Home(props) {
       <div className="search-bar-results">TESTEST</div>
     </div>
   );
->>>>>>> wheeler
 }

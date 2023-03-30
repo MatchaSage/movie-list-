@@ -1,9 +1,6 @@
 import React from "react";
 
 export default function Footer() {
-<<<<<<< HEAD
-  return <div>Footer</div>;
-=======
   return (
     <div className="footer">
       <div className="footer--attribute">
@@ -20,5 +17,4 @@ export default function Footer() {
       </p>
     </div>
   );
->>>>>>> wheeler
 }
