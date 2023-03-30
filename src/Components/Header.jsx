@@ -1,13 +1,11 @@
 import React from "react";
 
 export default function Header(props) {
-  props = props;
-
-  function ShowHome(props) {
+  function ShowHome() {
     props.homeState = true;
   }
 
-  function ShowList(props) {
+  function ShowList() {
     props.homeState = false;
   }
 
