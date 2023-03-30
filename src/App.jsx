@@ -6,7 +6,12 @@ import List from "./Components/List";
 import MovieInfo from "./Components/MovieInfo";
 import Footer from "./Components/Footer";
 
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import Home from "./Components/Home";
+
 export default function App() {
+<<<<<<< HEAD
   //State for home/list pages
   const [showHome, setShowHome] = useState(true);
   const [showInfo, setShowInfo] = useState(false);
@@ -102,6 +107,12 @@ export default function App() {
           movieListWatched={setMovieWatch}
         />
       )}
+=======
+  return (
+    <div className="app">
+      <Header />
+      <Home />
+>>>>>>> wheeler
       <Footer />
     </div>
   );
