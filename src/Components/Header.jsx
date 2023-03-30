@@ -1,22 +1,14 @@
 import React from "react";
 
 export default function Header(props) {
-  function ShowHome() {
-    props.homeState = true;
-  }
-
-  function ShowList() {
-    props.homeState = false;
-  }
-
   return (
-    <div className="header">
-      <a className="home--button" onClick={ShowHome}>
+    <header>
+      <h2 className="home--button" onClick={props.showHome}>
         Home
-      </a>
-      <a className="list--button" onClick={ShowList}>
+      </h2>
+      <h2 className="list--button" onClick={props.showList}>
         My List
-      </a>
-    </div>
+      </h2>
+    </header>
   );
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import "./style.css";
+import "./app.css";
+import "./list.css";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
 import List from "./Components/List";
@@ -8,7 +9,7 @@ import Footer from "./Components/Footer";
 
 export default function App() {
   //State for home/list pages
-  const [showHome, setShowHome] = useState(true);
+  const [showHome, setShowHome] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
 
   //State for the search bars

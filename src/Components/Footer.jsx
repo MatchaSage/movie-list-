@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="footer">
+    <footer>
       <div className="footer--attribute">
         <p>
           Api Provided by &nbsp;
@@ -15,6 +15,6 @@ export default function Footer() {
         Website by: <a href="https://github.com/CrosscutX">Crosscutx</a>{" "}
         <a href="https://github.com/MatchaSage">MatchaSage</a>
       </p>
-    </div>
+    </footer>
   );
 }
