@@ -8,7 +8,6 @@ import MovieInfo from "./Components/MovieInfo";
 import Footer from "./Components/Footer";
 
 import "./home.css";
-import "./app.css";
 
 export default function App() {
   //State for home/list pages
