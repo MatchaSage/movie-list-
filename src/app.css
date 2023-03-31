@@ -10,7 +10,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: rgb(241, 241, 235);
-  height: 100vh;
+  height: 100%;
   font-family: inter, arial;
 }
 
@@ -38,4 +38,8 @@ footer {
   width: 100%;
   background-color: black;
   color: white;
+}
+
+footer a {
+  color: #551a8b;
 }

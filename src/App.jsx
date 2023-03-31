@@ -26,12 +26,18 @@ export default function App() {
   function showHomeSetter() {
     if (showHome === false) {
       setShowHome(true);
+      //Set the page to 100 view height whenever the homepage is shown. This is needed because both pages
+      //need different height styling in the app component.
+      document.querySelector(".app").style.height = "100vh";
     }
   }
 
   function showListSetter() {
     if (showHome === true) {
       setShowHome(false);
+      //Set the page to 100% height whenever the list page is shown. This is needed because both pages
+      //need different height styling in the app component.
+      document.querySelector(".app").style.height = "100%";
     }
   }
   function showInfoSetter() {
