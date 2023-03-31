@@ -1,4 +1,5 @@
 import React from "react";
+import SearchItems from "./SearchItems";
 
 export default function Home(props) {
   return (
@@ -9,7 +10,10 @@ export default function Home(props) {
         type="text"
         placeholder=" Search movie..."
       ></input>
-      <div className="search-bar-results">TESTEST</div>
+      <div className="search-bar-results">
+        {" "}
+        <SearchItems movie={props.searchResults.movies[4]} />
+      </div>
     </div>
   );
 }

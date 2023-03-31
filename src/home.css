@@ -30,10 +30,53 @@
   width: 50%;
   margin-top: 10px;
   height: 70%;
-  background-color: green;
+  background-color: rgb(197, 193, 193);
   border-radius: 15px;
+  font-size: 1.8rem;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-right: 15px;
 }
 
 input {
   padding-left: 10px;
+}
+
+.movie-card {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(70, 70, 70);
+  padding-bottom: 5px;
+}
+
+.movie-card div {
+  display: flex;
+  gap: 20px;
+}
+
+.movie-card--addMovieButton {
+  background-color: green;
+  border: none;
+  width: 10%;
+  font-size: 1.1rem;
+}
+
+.movie-rating-90 {
+  background-color: blue;
+}
+
+.movie-rating-80 {
+  background-color: green;
+}
+.movie-rating-70 {
+  background-color: yellow;
+}
+
+.movie-rating-60 {
+  background-color: orange;
+}
+
+.movie-rating-below-60 {
+  background-color: red;
 }

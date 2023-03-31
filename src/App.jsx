@@ -8,7 +8,7 @@ import List from "./Components/List";
 import MovieInfo from "./Components/MovieInfo";
 import Footer from "./Components/Footer";
 
-TEST_OBJ = {
+const TEST_OBJ = {
   movies: [
     {
       Title: "Old",
@@ -295,10 +295,15 @@ export default function App() {
   function selectedMovieSetter(movie) {
     setSelectedMovie();
   }
-  //Api call to get movies
+
   useEffect(() => {
-    setSearchResults();
-  }, [homeSearchBar]);
+    setSearchResults(TEST_OBJ);
+  }, []);
+
+  //Api call to get movies
+  // useEffect(() => {
+  //   setSearchResults();
+  // }, [homeSearchBar]);
 
   return (
     <div className="app">
