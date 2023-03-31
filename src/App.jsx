@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import "./app.css";
+import "./home.css";
 import "./list.css";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
 import List from "./Components/List";
 import MovieInfo from "./Components/MovieInfo";
 import Footer from "./Components/Footer";
-
-import "./home.css";
 
 export default function App() {
   //State for home/list pages
