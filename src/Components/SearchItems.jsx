@@ -41,7 +41,3 @@ export default function searchItems(props) {
     </div>
   );
 }
-
-{
-  /* <span className="movie-card--rating">{props.movie.Ratings[1].Value}</span> */
-}
