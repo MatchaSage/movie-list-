@@ -64,10 +64,15 @@ export default function App() {
   function selectedMovieSetter(movie) {
     setSelectedMovie();
   }
-  //Api call to get movies
+
   useEffect(() => {
     setSearchResults();
-  }, [homeSearchBar]);
+  }, []);
+
+  //Api call to get movies
+  // useEffect(() => {
+  //   setSearchResults();
+  // }, [homeSearchBar]);
 
   return (
     <div className="app">

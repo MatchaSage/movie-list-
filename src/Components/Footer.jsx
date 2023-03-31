@@ -5,7 +5,7 @@ export default function Footer() {
     <footer>
       <div className="footer--attribute">
         <p>
-          Api Provided by &nbsp;
+          Api Provided by:&nbsp;
           <a className="attribute--link" href="https://www.omdbapi.com/">
             OMDb api
           </a>
