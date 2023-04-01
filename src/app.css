@@ -11,6 +11,7 @@
   align-items: center;
   background-color: rgb(241, 241, 235);
   height: 100%;
+  min-height: 0vh;
   font-family: inter, arial;
 }
 

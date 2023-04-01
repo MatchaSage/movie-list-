@@ -38,6 +38,7 @@
 }
 
 .movie-container {
+  display: flex;
   margin-top: 50px;
 }
 /**List.jsx end**/

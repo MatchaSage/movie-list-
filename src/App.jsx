@@ -38,6 +38,7 @@ export default function App() {
       //Set the page to 100% height whenever the list page is shown. This is needed because both pages
       //need different height styling in the app component.
       document.querySelector(".app").style.height = "100%";
+      document.querySelector(".app").style.minHeight = "1000px";
     }
   }
   function showInfoSetter() {
