@@ -13,7 +13,7 @@
   margin-right: 50px;
 }
 
-.home-search-bar {
+.home--search-bar {
   width: 50%;
   height: 50px;
   border: none;
@@ -22,7 +22,7 @@
   font-size: 1.9rem;
 }
 
-.home-search-bar:focus {
+.home--search-bar:focus {
   outline: 1px solid black;
 }
 

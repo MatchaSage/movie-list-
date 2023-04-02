@@ -31,7 +31,7 @@ export default function searchItems(props) {
   }
 
   return (
-    <div className="movie-card">
+    <div className="movie-card" onClick={props.showInfo}>
       <div>
         <span className="movie-card--title">{props.movie.Title}</span>
 
