@@ -19,6 +19,9 @@ export default function List(props) {
         <ListItems />
         <ListItems />
         <ListItems />
+        <ListItems />
+        <ListItems />
+        <ListItems />
       </div>
     </div>
   );

@@ -5,11 +5,13 @@
   justify-content: flex-start;
   align-items: center;
   height: 100%;
+  flex-grow: 1;
   width: 100%;
 }
 
 .filter-row {
-  align-self: center;
+  align-self: flex-end;
+  margin-right: 3%;
 }
 
 .filter-container {
@@ -39,7 +41,13 @@
 
 .movie-container {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   margin-top: 50px;
+  margin-bottom: 50px;
+  margin-right: 10%;
+  margin-left: 10%;
+  gap: 40px;
 }
 /**List.jsx end**/
 
@@ -47,10 +55,22 @@
 .list-items {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   height: 300px;
   width: 250px;
   color: white;
   background-color: black;
+}
+
+.list-items .image-container {
+  height: 50%;
+}
+
+.list-items .info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50%;
 }
 /**ListItems.jsx end**/
