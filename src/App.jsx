@@ -241,7 +241,7 @@ const TEST_OBJ = {
 
 export default function App() {
   //State for home/list pages
-  const [showHome, setShowHome] = useState(false);
+  const [showHome, setShowHome] = useState(true);
   const [showInfo, setShowInfo] = useState(false);
 
   //State for the search bars
@@ -257,12 +257,19 @@ export default function App() {
   function showHomeSetter() {
     if (showHome === false) {
       setShowHome(true);
+      //Set the page to 100 view height whenever the homepage is shown. This is needed because both pages
+      //need different height styling in the app component.
+      document.querySelector(".app").style.height = "100vh";
     }
   }
 
   function showListSetter() {
     if (showHome === true) {
       setShowHome(false);
+      //Set the page to 100% height whenever the list page is shown. This is needed because both pages
+      //need different height styling in the app component.
+      document.querySelector(".app").style.height = "100%";
+      document.querySelector(".app").style.minHeight = "100vh";
     }
   }
   function showInfoSetter() {
