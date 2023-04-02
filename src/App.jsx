@@ -10,7 +10,7 @@ import Footer from "./Components/Footer";
 
 export default function App() {
   //State for home/list pages
-  const [showHome, setShowHome] = useState(false);
+  const [showHome, setShowHome] = useState(true);
   const [showInfo, setShowInfo] = useState(false);
 
   //State for the search bars
