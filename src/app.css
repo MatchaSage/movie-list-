@@ -11,6 +11,8 @@
   align-items: center;
   background-color: rgb(241, 241, 235);
   height: 100vh;
+  min-height: 0vh;
+  font-family: inter, arial;
 }
 
 header {
@@ -37,4 +39,8 @@ footer {
   width: 100%;
   background-color: black;
   color: white;
+}
+
+footer a {
+  color: #551a8b;
 }
