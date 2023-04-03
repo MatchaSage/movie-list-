@@ -10,10 +10,7 @@ export default function Home(props) {
         type="text"
         placeholder=" Search movie..."
       ></input>
-      <div className="search-bar-results">
-        {" "}
-        <SearchItems movie={props.searchResults.movies[4]} />
-      </div>
+      <div className="search-bar-results"></div>
     </div>
   );
 }

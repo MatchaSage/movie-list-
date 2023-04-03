@@ -57,14 +57,22 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 300px;
+  height: 400px;
   width: 250px;
   color: white;
   background-color: black;
 }
 
+.list-items-card {
+}
+
 .list-items .image-container {
-  height: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-items .image-container img {
+  height: 150px;
 }
 
 .list-items .info-container {

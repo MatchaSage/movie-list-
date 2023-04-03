@@ -3,9 +3,8 @@ import React from "react";
 export default function ListItems(props) {
   return (
     <div className="list-items">
-      <div className="image-container">
-        <h1>Image</h1>
-        <img></img>
+      <div className="list-item-card">
+        <div className="image-container"></div>
       </div>
       <div className="info-container">
         <h2>Movie</h2>
