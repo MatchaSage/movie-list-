@@ -1,13 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function ListItems(props) {
+  const [isHover, setIsHover] = useState(false);
+  function handleHoverEnter() {
+    setIsHover(true);
+  }
+
+  function handleHoverLeave() {
+    setIsHover(false);
+  }
+
+  const elementDisplay = {
+    display: isHover ? "flex" : "none",
+  };
+
   return (
     <div className="list-items">
-      <div className="list-items-card">
+      <div
+        className="list-items-card"
+        onMouseEnter={handleHoverEnter}
+        onMouseLeave={handleHoverLeave}
+      >
         <img
           src="https://www.defining.co/wp-content/uploads/2022/09/ScreenShot2020-12-26at5.06.58PM_2043ace9-22e9-4fd8-8532-cb9073b7385a.png"
           alt=""
         />
+        <div className="watched-container" style={elementDisplay}>
+          <label>Watched</label>
+          <input type="checkbox" id="watched" name="watched" />
+        </div>
+        <div className="button-container" style={elementDisplay}>
+          <button className="delete-btn" type="button">
+            Delete
+          </button>
+        </div>
       </div>
       <div className="info-container">
         <h3>John Wick 4</h3>

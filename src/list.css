@@ -75,6 +75,40 @@
   width: 100%;
 }
 
+.watched-container {
+  display: none;
+  gap: 20px;
+  color: white;
+  position: absolute;
+  top: 100px;
+}
+
+.watched-container label {
+  font-size: 1.5rem;
+}
+
+.watched-container input {
+  background-color: white;
+  width: 30px;
+  border-radius: 5px;
+}
+
+.button-container {
+  display: flex;
+  position: absolute;
+  bottom: 100px;
+}
+
+.button-container button {
+  cursor: pointer;
+  background-color: red;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.5rem;
+  height: 30px;
+  width: 100px;
+}
+
 .list-items .info-container {
   margin-top: 5px;
   display: flex;
