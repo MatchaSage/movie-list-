@@ -53,32 +53,38 @@
 
 /**ListItems.jsx start**/
 .list-items {
+  height: 100%;
+}
+
+.list-items-card {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   height: 400px;
   width: 250px;
-  color: white;
-  background-color: black;
+}
+/**Hover class to lower opacity of posters**/
+.list-items-card:hover {
+  filter: brightness(50%);
+  transition: all 0.4s ease;
 }
 
-.list-items-card {
-}
-
-.list-items .image-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.list-items .image-container img {
-  height: 150px;
+.list-items-card img {
+  height: 100%;
+  width: 100%;
 }
 
 .list-items .info-container {
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 50%;
+  align-items: flex-start;
 }
+
+.info-container .rating-container {
+  padding: 5px;
+  border-radius: 5px;
+}
+
 /**ListItems.jsx end**/
