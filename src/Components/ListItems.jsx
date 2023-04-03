@@ -14,6 +14,11 @@ export default function ListItems(props) {
     display: isHover ? "flex" : "none",
   };
 
+  const elementDarken = {
+    transition: isHover ? "all 0.4s ease" : "none",
+    filter: isHover ? "brightness(50%)" : "none",
+  };
+
   return (
     <div className="list-items">
       <div
@@ -23,7 +28,8 @@ export default function ListItems(props) {
       >
         <img
           src="https://www.defining.co/wp-content/uploads/2022/09/ScreenShot2020-12-26at5.06.58PM_2043ace9-22e9-4fd8-8532-cb9073b7385a.png"
-          alt=""
+          alt="poster"
+          style={elementDarken}
         />
         <div className="watched-container" style={elementDisplay}>
           <label>Watched</label>

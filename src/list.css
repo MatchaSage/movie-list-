@@ -71,7 +71,7 @@
   width: 100%;
 }
 
-.list-items-card img:hover {
+.hover {
   transition: all 0.4s ease;
   filter: brightness(50%);
 }
