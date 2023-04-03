@@ -58,6 +58,7 @@
 
 .list-items-card {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -65,14 +66,14 @@
   width: 250px;
 }
 /**Hover class to lower opacity of posters**/
-.list-items-card:hover {
-  filter: brightness(50%);
-  transition: all 0.4s ease;
-}
-
 .list-items-card img {
   height: 100%;
   width: 100%;
+}
+
+.list-items-card img:hover {
+  transition: all 0.4s ease;
+  filter: brightness(50%);
 }
 
 .watched-container {
@@ -94,7 +95,7 @@
 }
 
 .button-container {
-  display: flex;
+  display: none;
   position: absolute;
   bottom: 100px;
 }
