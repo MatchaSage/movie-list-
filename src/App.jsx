@@ -239,7 +239,7 @@ export default function App() {
       },
     ],
   };
-  //State for home/list pages
+  //State for home/list/filter pages
   const [showHome, setShowHome] = useState(true);
   const [showInfo, setShowInfo] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
@@ -277,6 +277,14 @@ export default function App() {
       setShowInfo(false);
     } else {
       setShowInfo(true);
+    }
+  }
+
+  function showFilterSetter() {
+    if (showFilter === true) {
+      setShowFilter(false);
+    } else {
+      setShowFilter(true);
     }
   }
   //Functions to set/control the text boxes.
@@ -337,6 +345,8 @@ export default function App() {
           movieListAdd={movieListAdd}
           movieListDelete={movieListDelete}
           movieListWatched={setMovieWatch}
+          showFilter={showFilter}
+          setShowFilter={showFilterSetter}
         />
       )}
       {showInfo && (
