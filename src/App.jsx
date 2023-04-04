@@ -242,6 +242,7 @@ export default function App() {
   //State for home/list pages
   const [showHome, setShowHome] = useState(true);
   const [showInfo, setShowInfo] = useState(false);
+  const [showFilter, setShowFilter] = useState(false);
 
   //State for the search bars
   const [homeSearchBar, setHomeSearchBar] = useState("");
@@ -304,9 +305,8 @@ export default function App() {
 
   useEffect(() => {
     setSearchResults(TEST_OBJ);
+    setMovieList(TEST_OBJ);
   }, []);
-
-  console.log(TEST_OBJ);
 
   //Api call to get movies
   // useEffect(() => {

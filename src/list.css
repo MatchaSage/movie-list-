@@ -16,6 +16,7 @@
 
 .filter-container {
   display: flex;
+  position: relative;
   flex-direction: column;
 }
 
@@ -38,6 +39,72 @@
   height: 25px;
   width: 25px;
 }
+
+/*Start of filter drop down*/
+.filter-drop-down {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  top: 40px;
+  right: 0px;
+  background-color: rgb(217, 78, 78);
+  height: 700px;
+  width: 300px;
+  border-radius: 5px;
+  z-index: 1;
+  gap: 20px;
+}
+/*aligns all the filter items the same in the filter dropdown*/
+.filter-item {
+  position: absolute;
+  left: 100px;
+}
+
+.filter-drop-down .search-row {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-row label {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 1.2rem;
+}
+
+.search-row input {
+  align-self: center;
+  padding: 3px;
+}
+
+.watched-row {
+  width: 100%;
+}
+
+.watched-row label {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 5px;
+}
+
+.genre-row {
+  width: 100%;
+}
+
+.genre-row label {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 5px;
+}
+
+/**End of filter drop down**/
 
 .movie-container {
   display: flex;
