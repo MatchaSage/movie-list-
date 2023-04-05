@@ -2,8 +2,23 @@ import React from "react";
 import SearchItems from "./SearchItems";
 
 export default function Home(props) {
+  let movieItems = [];
   function handleChange(event) {
     props.setSearchBar(event.target.value);
+  }
+
+  if (props.searchResults.movies != undefined) {
+    movieItems = props.searchResults.movies.map((movie) => {
+      return (
+        <SearchItems
+          key={movie.imdbID}
+          id={movie.imdbID}
+          showInfo={props.showInfo}
+          movie={movie}
+          setSelectedMovie={props.setSelectedMovie}
+        />
+      );
+    });
   }
 
   return (
@@ -16,13 +31,7 @@ export default function Home(props) {
         onChange={handleChange}
         value={props.homeSearchBar}
       ></input>
-      <div className="search-bar-results">
-        {" "}
-        <SearchItems
-          showInfo={props.showInfo}
-          movie={props.searchResults.movies[4]}
-        />
-      </div>
+      <div className="search-bar-results">{movieItems}</div>
     </div>
   );
 }

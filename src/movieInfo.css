@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.movieInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: absolute;
+  top: 100px;
+  bottom: 100px;
+  padding-left: 100px;
+  width: 80%;
+  height: 650px;
+  background-color: grey;
+}
+
+.movieInfo--information-block {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 2.5rem;
+  padding-top: 50px;
+}
+
+.movieInfo--title {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.movieInfo--exitInfo {
+  align-self: flex-end;
+  width: 30px;
+  height: 30px;
+}
+
+.movieInfo--buttons {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  align-items: flex-end;
+  /* flex-grow: 1; */
+  padding-bottom: 20px;
+}
+
+.movieInfo--addMovie,
+.movieInfo--deleteMovie {
+  min-height: 40px;
+  max-height: 40px;
+  min-width: 80px;
+  font-size: 1.5rem;
+  color: rgb(235, 235, 235);
+  border: none;
+}
+
+.movieInfo--addMovie {
+  background-color: rgb(9, 226, 9);
+}
+
+.movieInfo--deleteMovie {
+  background-color: red;
+}
+
+fieldset {
+  display: flex;
+  gap: 10px;
+  border: none;
+  font-size: 1.3rem;
+}

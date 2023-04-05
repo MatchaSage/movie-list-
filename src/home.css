@@ -26,6 +26,9 @@
 }
 
 .search-bar-results {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   width: 50%;
   margin-top: 10px;
   height: 70%;
@@ -45,6 +48,7 @@ input {
   display: flex;
   gap: 15px;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid rgb(70, 70, 70);
   padding-bottom: 5px;
 }

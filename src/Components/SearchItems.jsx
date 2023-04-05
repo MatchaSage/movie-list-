@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 export default function searchItems(props) {
   let rating = catchRatingError(props.movie.Ratings);
   let ratingColor = setRatingColor(rating);
-
   function catchRatingError(ratings) {
     if (ratings[1] !== undefined) {
       let ratingString = ratings[1].Value.split("%")[0];
@@ -12,7 +11,6 @@ export default function searchItems(props) {
       return "";
     }
   }
-
   function setRatingColor(rating) {
     let ratingInt = parseInt(rating);
     if (ratingInt >= 90) {
@@ -30,11 +28,15 @@ export default function searchItems(props) {
     }
   }
 
+  function handleClick() {
+    props.showInfo();
+    setSelectedMovie(movie);
+  }
+
   return (
-    <div className="movie-card" onClick={props.showInfo}>
+    <div className="movie-card" onClick={handleClick}>
       <div>
         <span className="movie-card--title">{props.movie.Title}</span>
-
         <span className={`movie-card--rating" ${ratingColor}`}>{rating}</span>
       </div>
       <button className="movie-card--addMovieButton">ADD</button>
