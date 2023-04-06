@@ -298,6 +298,12 @@ export default function App() {
   //Functions to set the arrays for movies.
   function movieListAdd(newMovie) {
     setMovieList((oldMovies) => {
+      //Checks for duplicate movies
+      for (let i = 0; i < oldMovies.length; i++) {
+        if (oldMovies[i].imdbID === newMovie.imdbID) {
+          return [...oldMovies];
+        }
+      }
       return [...oldMovies, newMovie];
     });
   }
