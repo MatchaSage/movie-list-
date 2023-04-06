@@ -9,6 +9,10 @@
   width: 100%;
 }
 
+.list h1 {
+  font-size: 4rem;
+}
+
 .filter-row {
   align-self: flex-end;
   margin-right: 3%;

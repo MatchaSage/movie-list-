@@ -4,6 +4,7 @@ import FilterImg from "../img/filter.png";
 
 export default function List(props) {
   const [filteredList, setFilteredList] = useState([]);
+
   useEffect(() => {
     if (props.movieList !== undefined) {
       setFilteredList(
