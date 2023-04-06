@@ -240,10 +240,10 @@ export default function App() {
       },
     ],
   };
-
-  //State for home/list pages
+  //State for home/list/filter pages
   const [showHome, setShowHome] = useState(true);
   const [showInfo, setShowInfo] = useState(false);
+  const [showFilter, setShowFilter] = useState(false);
 
   //State for the search bars
   const [homeSearchBar, setHomeSearchBar] = useState("");
@@ -280,6 +280,14 @@ export default function App() {
       setShowInfo(true);
     }
   }
+
+  function showFilterSetter() {
+    if (showFilter === true) {
+      setShowFilter(false);
+    } else {
+      setShowFilter(true);
+    }
+  }
   //Functions to set/control the text boxes.
   function homeSearchSetter(text) {
     setHomeSearchBar(text);
@@ -292,10 +300,13 @@ export default function App() {
     setMovieList();
   }
 
-  function movieListDelete(movie) {
-    setMovieList();
+  function movieListDelete(selectedMovie) {
+    setMovieList((oldMovies) => {
+      return oldMovies.filter((movie) => {
+        return movie.imdbID !== selectedMovie.imdbID;
+      });
+    });
   }
-
   function setMovieWatch(movie) {
     setMovieList();
   }
@@ -306,6 +317,7 @@ export default function App() {
 
   useEffect(() => {
     setSearchResults(TEST_OBJ);
+    setMovieList(TEST_OBJ.movies);
   }, []);
 
   //Api call to get movies
@@ -337,6 +349,8 @@ export default function App() {
           movieListAdd={movieListAdd}
           movieListDelete={movieListDelete}
           movieListWatched={setMovieWatch}
+          showFilter={showFilter}
+          setShowFilter={showFilterSetter}
         />
       )}
       {showInfo && (

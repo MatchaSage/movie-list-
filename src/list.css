@@ -9,6 +9,10 @@
   width: 100%;
 }
 
+.list h1 {
+  font-size: 4rem;
+}
+
 .filter-row {
   align-self: flex-end;
   margin-right: 3%;
@@ -16,6 +20,7 @@
 
 .filter-container {
   display: flex;
+  position: relative;
   flex-direction: column;
 }
 
@@ -28,6 +33,7 @@
   cursor: pointer;
   background-color: rgb(217, 78, 78);
   border-radius: 5px;
+  user-select: none;
 }
 
 .filter-buttons span {
@@ -38,6 +44,96 @@
   height: 25px;
   width: 25px;
 }
+
+/*Start of filter drop down*/
+.filter-drop-down {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  top: 40px;
+  right: 0px;
+  background-color: rgb(217, 78, 78);
+  height: 400px;
+  width: 300px;
+  border-radius: 5px;
+  z-index: 1;
+  gap: 20px;
+}
+/*aligns all the filter items the same in the filter dropdown*/
+.filter-item {
+  position: absolute;
+  left: 100px;
+}
+
+.filter-drop-down .search-row {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-row label {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 1.2rem;
+}
+
+.search-row input {
+  align-self: center;
+  padding: 3px;
+}
+
+.watched-row {
+  width: 100%;
+}
+
+.watched-row label {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 5px;
+}
+
+.genre-row {
+  width: 100%;
+}
+
+.genre-row label {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 5px;
+}
+
+.rating-row {
+  width: 100%;
+}
+
+.director-row label input {
+  padding-left: 3px;
+}
+
+.button-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button-row button {
+  font-size: 1.2rem;
+  height: 30px;
+  width: 100px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2abbd5;
+  cursor: pointer;
+}
+
+/**End of filter drop down**/
 
 .movie-container {
   display: flex;
@@ -53,24 +149,73 @@
 
 /**ListItems.jsx start**/
 .list-items {
+  height: 100%;
+}
+
+.list-items-card {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 300px;
+  height: 400px;
   width: 250px;
-  color: white;
-  background-color: black;
+}
+/**Hover class to lower opacity of posters**/
+.list-items-card img {
+  height: 100%;
+  width: 100%;
 }
 
-.list-items .image-container {
-  height: 50%;
+.hover {
+  transition: all 0.4s ease;
+  filter: brightness(50%);
+}
+
+.watched-container {
+  display: none;
+  gap: 20px;
+  color: white;
+  position: absolute;
+  top: 100px;
+}
+
+.watched-container label {
+  font-size: 1.5rem;
+}
+
+.watched-container input {
+  background-color: white;
+  width: 30px;
+  border-radius: 5px;
+}
+
+.button-container {
+  display: none;
+  position: absolute;
+  bottom: 100px;
+}
+
+.button-container button {
+  cursor: pointer;
+  background-color: red;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.5rem;
+  height: 30px;
+  width: 100px;
 }
 
 .list-items .info-container {
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 50%;
+  align-items: flex-start;
 }
+
+.info-container .rating-container {
+  padding: 5px;
+  border-radius: 5px;
+}
+
 /**ListItems.jsx end**/
