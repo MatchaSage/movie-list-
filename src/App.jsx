@@ -306,7 +306,6 @@ export default function App() {
       });
     });
   }
-  console.log(movieList);
   function setMovieWatch(movie) {
     setMovieList();
   }
