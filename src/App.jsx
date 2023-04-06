@@ -296,9 +296,15 @@ export default function App() {
     setListSearchBar(text);
   }
   //Functions to set the arrays for movies.
-  function movieListAdd(movie) {
-    setMovieList();
+  function movieListAdd(newMovie) {
+    setMovieList((oldMovies) => {
+      return oldMovies.map((movies) => {
+        return [...movies, newMovie];
+      });
+    });
   }
+
+  console.log(movieList);
 
   function movieListDelete(selectedMovie) {
     setMovieList((oldMovies) => {
