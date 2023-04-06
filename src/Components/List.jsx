@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ListItems from "./ListItems";
 import FilterImg from "../img/filter.png";
 
 export default function List(props) {
+  const [filteredList, setFilteredList] = useState([]);
+  console.log(props.movieList);
+  useEffect(() => {
+    if (props.movieList !== undefined) {
+      setFilteredList(
+        props.movieList.map((movie) => {
+          return (
+            <ListItems
+              key={movie.imdbID}
+              id={movie.imdbID}
+              movie={movie}
+              delete={props.movieListDelete}
+            />
+          );
+        })
+      );
+    }
+  }, [props.movieList]);
+
   return (
     <div className="list">
       <h1>Your List</h1>
@@ -83,15 +102,7 @@ export default function List(props) {
           )}
         </div>
       </div>
-      <div className="movie-container">
-        <ListItems />
-        <ListItems />
-        <ListItems />
-        <ListItems />
-        <ListItems />
-        <ListItems />
-        <ListItems />
-      </div>
+      <div className="movie-container">{filteredList}</div>
     </div>
   );
 }

@@ -299,10 +299,14 @@ export default function App() {
     setMovieList();
   }
 
-  function movieListDelete(movie) {
-    setMovieList();
+  function movieListDelete(selectedMovie) {
+    setMovieList((oldMovies) => {
+      return oldMovies.filter((movie) => {
+        return movie.imdbID !== selectedMovie.imdbID;
+      });
+    });
   }
-
+  console.log(movieList);
   function setMovieWatch(movie) {
     setMovieList();
   }
@@ -313,7 +317,7 @@ export default function App() {
 
   useEffect(() => {
     setSearchResults(TEST_OBJ);
-    setMovieList(TEST_OBJ);
+    setMovieList(TEST_OBJ.movies);
   }, []);
 
   //Api call to get movies

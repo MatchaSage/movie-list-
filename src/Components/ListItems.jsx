@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 export default function ListItems(props) {
   const [isHover, setIsHover] = useState(false);
+  const rating = returnRating();
+  const ratingColor = returnRatingColor(rating);
 
   function handleHoverEnter() {
     setIsHover(true);
@@ -9,6 +11,29 @@ export default function ListItems(props) {
 
   function handleHoverLeave() {
     setIsHover(false);
+  }
+
+  function returnRating() {
+    if (props.movie.Ratings[1]) {
+      let rating = props.movie.Ratings[1].Value;
+      return rating.substring(0, rating.length - 1);
+    }
+  }
+  //Css for this can be found in home
+  function returnRatingColor(rating) {
+    if (rating >= 90) {
+      return "movie-rating-90";
+    } else if (rating >= 80) {
+      return "movie-rating-80";
+    } else if (rating >= 70) {
+      return "movie-rating-70";
+    } else if (rating >= 60) {
+      return "movie-rating-60";
+    } else if (rating < 60) {
+      return "movie-rating-below-60";
+    } else {
+      return "";
+    }
   }
 
   const elementDisplay = {
@@ -27,25 +52,27 @@ export default function ListItems(props) {
         onMouseEnter={handleHoverEnter}
         onMouseLeave={handleHoverLeave}
       >
-        <img
-          src="https://www.defining.co/wp-content/uploads/2022/09/ScreenShot2020-12-26at5.06.58PM_2043ace9-22e9-4fd8-8532-cb9073b7385a.png"
-          alt="poster"
-          style={elementDarken}
-        />
+        <img src={props.movie.Poster} alt="poster" style={elementDarken} />
         <div className="watched-container" style={elementDisplay}>
           <label>Watched</label>
           <input type="checkbox" id="watched" name="watched" />
         </div>
         <div className="button-container" style={elementDisplay}>
-          <button className="delete-btn" type="button">
+          <button
+            className="delete-btn"
+            type="button"
+            onClick={() => {
+              props.delete(props.movie);
+            }}
+          >
             Delete
           </button>
         </div>
       </div>
       <div className="info-container">
-        <h3>John Wick 4</h3>
-        <div className="rating-container movie-rating-90">
-          <h4>94</h4>
+        <h3>{props.movie.Title}</h3>
+        <div className={"rating-container " + ratingColor}>
+          <h4>{rating}</h4>
         </div>
       </div>
     </div>
