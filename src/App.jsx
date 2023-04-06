@@ -298,9 +298,7 @@ export default function App() {
   //Functions to set the arrays for movies.
   function movieListAdd(newMovie) {
     setMovieList((oldMovies) => {
-      return oldMovies.map((movies) => {
-        return [...movies, newMovie];
-      });
+      return [...oldMovies, newMovie];
     });
   }
 

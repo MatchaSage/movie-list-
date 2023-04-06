@@ -52,7 +52,12 @@ export default function ListItems(props) {
         onMouseEnter={handleHoverEnter}
         onMouseLeave={handleHoverLeave}
       >
-        <img src={props.movie.Poster} alt="poster" style={elementDarken} />
+        <img
+          src={props.movie.Poster}
+          alt="poster"
+          style={elementDarken}
+          onClick={props.showInfo}
+        />
         <div className="watched-container" style={elementDisplay}>
           <label>Watched</label>
           <input type="checkbox" id="watched" name="watched" />

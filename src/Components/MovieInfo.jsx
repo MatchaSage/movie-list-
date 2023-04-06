@@ -18,7 +18,12 @@ export default function MovieInfo(props) {
       </div>
 
       <div className="movieInfo--buttons">
-        <button className="movieInfo--addMovie" onClick={props.movieListAdd}>
+        <button
+          className="movieInfo--addMovie"
+          onClick={() => {
+            props.movieListAdd(props.selectedMovie);
+          }}
+        >
           Add
         </button>
         <button
