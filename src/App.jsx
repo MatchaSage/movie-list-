@@ -301,7 +301,7 @@ export default function App() {
   }
   //Adds movie info to an object that holds it for the MofieInfo component
   function selectedMovieSetter(movie) {
-    setSelectedMovie();
+    setSelectedMovie(movie);
   }
 
   useEffect(() => {

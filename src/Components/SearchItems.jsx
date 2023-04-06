@@ -30,7 +30,7 @@ export default function searchItems(props) {
 
   function handleClick() {
     props.showInfo();
-    setSelectedMovie(movie);
+    props.setSelectedMovie(props.movie);
   }
 
   return (
