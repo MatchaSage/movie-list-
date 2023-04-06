@@ -16,6 +16,7 @@ export default function Home(props) {
           showInfo={props.showInfo}
           movie={movie}
           setSelectedMovie={props.setSelectedMovie}
+          movieListAdd={props.movieListAdd}
         />
       );
     });

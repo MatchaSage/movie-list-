@@ -39,7 +39,14 @@ export default function searchItems(props) {
         <span className="movie-card--title">{props.movie.Title}</span>
         <span className={`movie-card--rating" ${ratingColor}`}>{rating}</span>
       </div>
-      <button className="movie-card--addMovieButton">ADD</button>
+      <button
+        className="movie-card--addMovieButton"
+        onClick={() => {
+          props.movieListAdd(props.movie);
+        }}
+      >
+        ADD
+      </button>
     </div>
   );
 }
