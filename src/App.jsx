@@ -328,6 +328,14 @@ export default function App() {
   useEffect(() => {
     setSearchResults(TEST_OBJ);
     setMovieList(TEST_OBJ.movies);
+    setMovieList((oldMovies) => {
+      let newMovieArray = [];
+      for (let i = 0; i < oldMovies.length; i++) {
+        oldMovies[i].watched = false;
+        newMovieArray.push(oldMovies[i]);
+      }
+      return newMovieArray;
+    });
   }, []);
 
   //Api call to get movies
