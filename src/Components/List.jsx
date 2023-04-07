@@ -3,26 +3,59 @@ import ListItems from "./ListItems";
 import FilterImg from "../img/filter.png";
 
 export default function List(props) {
-  const [filteredList, setFilteredList] = useState([]);
+  const [search, setSearch] = useState("");
+  const [watched, setWatched] = useState("all");
+  const [genre, setGenre] = useState("");
+  const [rating, setRating] = useState("");
+  const [director, setDirector] = useState("");
 
-  useEffect(() => {
-    if (props.movieList !== undefined) {
-      setFilteredList(
-        props.movieList.map((movie) => {
-          return (
-            <ListItems
-              key={movie.imdbID}
-              id={movie.imdbID}
-              movie={movie}
-              delete={props.movieListDelete}
-              setWatched={props.movieListWatched}
-              showInfo={props.showInfo}
-            />
-          );
-        })
+  // const filteredListItems = props.movieList.map((movie) => {
+  //   return (
+  //     <ListItems
+  //       key={movie.imdbID}
+  //       id={movie.imdbID}
+  //       movie={movie}
+  //       delete={props.movieListDelete}
+  //       setWatched={props.movieListWatched}
+  //       showInfo={props.showInfo}
+  //     />
+  //   );
+  // });
+
+  const filteredListItems = props.movieList
+    .filter((movie) => {
+      return checkWatched(movie);
+    })
+    .map((movie) => {
+      console.log(movie);
+      return (
+        <ListItems
+          key={movie.imdbID}
+          id={movie.imdbID}
+          movie={movie}
+          delete={props.movieListDelete}
+          setWatched={props.movieListWatched}
+          showInfo={props.showInfo}
+        />
       );
+    });
+
+  function checkWatched(movie) {
+    if (watched === "all") {
+      return movie;
+    } else if (watched === "watched") {
+      return movie.watched === true;
+    } else if (watched === "notWatched") {
+      return movie.watched === false;
     }
-  }, [props.movieList]);
+  }
+
+  //Button click functions
+  function randomButtonClick() {
+    let randomNumber = Math.floor(Math.random() * props.movieList.length);
+  }
+
+  function resetButtonClick() {}
 
   return (
     <div className="list">
@@ -48,6 +81,11 @@ export default function List(props) {
                     name="watched-select"
                     id="watched-select"
                     className="filter-item"
+                    onChange={() => {
+                      const option = document.querySelector(".filter-item");
+                      const value = option.value;
+                      setWatched(option.value);
+                    }}
                   >
                     <option value="all">All</option>
                     <option value="notWatched">Not Watched</option>
@@ -96,15 +134,26 @@ export default function List(props) {
                 </label>
               </div>
               <div className="button-row">
-                <button type="button" className="random-button">
+                <button
+                  type="button"
+                  className="random-button"
+                  onClick={randomButtonClick}
+                >
                   Random!
+                </button>
+                <button
+                  type="button"
+                  className="reset-button"
+                  onClick={resetButtonClick}
+                >
+                  Reset
                 </button>
               </div>
             </div>
           )}
         </div>
       </div>
-      <div className="movie-container">{filteredList}</div>
+      <div className="movie-container">{filteredListItems}</div>
     </div>
   );
 }
