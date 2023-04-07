@@ -64,9 +64,10 @@ export default function ListItems(props) {
             type="checkbox"
             id="watched"
             name="watched"
-            onClick={() => {
+            onChange={() => {
               props.setWatched(props.movie);
             }}
+            checked={props.movie.watched === false ? false : true}
           />
         </div>
         <div className="button-container" style={elementDisplay}>
