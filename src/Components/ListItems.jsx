@@ -60,7 +60,14 @@ export default function ListItems(props) {
         />
         <div className="watched-container" style={elementDisplay}>
           <label>Watched</label>
-          <input type="checkbox" id="watched" name="watched" />
+          <input
+            type="checkbox"
+            id="watched"
+            name="watched"
+            onClick={() => {
+              props.setWatched(props.movie);
+            }}
+          />
         </div>
         <div className="button-container" style={elementDisplay}>
           <button

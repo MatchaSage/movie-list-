@@ -317,8 +317,22 @@ export default function App() {
       });
     });
   }
-  function setMovieWatch(movie) {
-    setMovieList();
+
+  function setMovieWatch(selectedMovie) {
+    setMovieList((oldMovies) => {
+      let newMovieArray = [];
+      for (let i = 0; i < oldMovies.length; i++) {
+        if (selectedMovie.imdbID === oldMovies[i].imdbID) {
+          newMovieArray.push({
+            ...oldMovies[i],
+            watched: !oldMovies[i].watched,
+          });
+        } else {
+          newMovieArray.push(oldMovies[i]);
+        }
+      }
+      return newMovieArray;
+    });
   }
   //Adds movie info to an object that holds it for the MofieInfo component
   function selectedMovieSetter(movie) {

@@ -15,6 +15,7 @@ export default function List(props) {
               id={movie.imdbID}
               movie={movie}
               delete={props.movieListDelete}
+              setWatched={props.movieListWatched}
               showInfo={props.showInfo}
             />
           );
