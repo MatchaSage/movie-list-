@@ -40,6 +40,7 @@ export default function List(props) {
         key={movie.imdbID}
         id={movie.imdbID}
         movie={movie}
+        setSelectedMovie={props.setSelectedMovie}
         delete={props.movieListDelete}
         setWatched={props.movieListWatched}
         showInfo={props.showInfo}

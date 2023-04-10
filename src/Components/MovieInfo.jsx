@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function MovieInfo(props) {
-  console.log(props.selectedMovie);
   let rating = catchRatingError(props.selectedMovie.Ratings);
 
   function catchRatingError(ratings) {

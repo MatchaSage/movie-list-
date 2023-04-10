@@ -45,6 +45,11 @@ export default function ListItems(props) {
     filter: isHover ? "brightness(50%)" : "none",
   };
 
+  function movieBackgroundClick() {
+    props.showInfo();
+    props.setSelectedMovie(props.movie);
+  }
+
   return (
     <div className="list-items">
       <div
@@ -56,7 +61,7 @@ export default function ListItems(props) {
           src={props.movie.Poster}
           alt="poster"
           style={elementDarken}
-          onClick={props.showInfo}
+          onClick={movieBackgroundClick}
         />
         <div className="watched-container" style={elementDisplay}>
           <label>Watched</label>
