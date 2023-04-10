@@ -12,8 +12,10 @@ export default function List(props) {
 
   useEffect(() => {
     setRandom(false);
+    localStorage.setItem("random", "null");
   }, [search, watched, genre, rating, director]);
 
+  let filteredListItems;
   let filteredList = props.movieList
     //Check each of the filter criteria before mapping the movie list.
     .filter((movie) => {
@@ -31,8 +33,8 @@ export default function List(props) {
       return checkDirector(movie);
     });
   randomButtonClick(filteredList);
-
-  let filteredListItems = filteredList.map((movie) => {
+  console.log(filteredList);
+  filteredListItems = filteredList.map((movie) => {
     return (
       <ListItems
         key={movie.imdbID}
@@ -162,14 +164,24 @@ export default function List(props) {
     if (random === false) {
       return;
     }
+    console.log(filteredList);
+    //Add to a new array just so that my .maps don't break.
     let newFilteredList = [];
-    let randomNumber = Math.floor(Math.random() * filteredList.length);
-    if (filteredList.length > 1) {
-      filteredList = filteredList[randomNumber];
-      newFilteredList.push(filteredList);
-      filteredList = newFilteredList;
-      console.log(filteredList);
+    let randomNumber;
+    randomNumber = localStorage.getItem("random");
+    if (randomNumber === "null") {
+      randomNumber = Math.floor(Math.random() * filteredList.length);
+    } else {
+      randomNumber = localStorage.getItem("random");
     }
+    filteredList = filteredList[randomNumber];
+    newFilteredList.push(filteredList);
+    filteredList = newFilteredList;
+    //This if statement fixes a bug that pops up when you access the search bar after using a random number
+    if (filteredList[0] === undefined) {
+      filteredList = [];
+    }
+    localStorage.setItem("random", randomNumber);
   }
 
   function resetButtonClick() {
@@ -180,6 +192,7 @@ export default function List(props) {
     setRating("none");
     setDirector("");
     setRandom(false);
+    localStorage.setItem("random", "null");
   }
 
   return (
