@@ -18,7 +18,13 @@ export default function List(props) {
       return checkGenre(movie);
     });
   checkRating(filteredListItems);
-  console.log(filteredListItems);
+  filteredListItems = filteredListItems
+    .filter((movie) => {
+      return checkSearch(movie);
+    })
+    .filter((movie) => {
+      return checkDirector(movie);
+    });
   filteredListItems = filteredListItems.map((movie) => {
     return (
       <ListItems
@@ -80,7 +86,7 @@ export default function List(props) {
         }
 
         if (prev.Ratings[1] === undefined) {
-          return 1;
+          return -1;
         }
         //Grab the previous and next rating values and turn them into numbers for comparison
         let previousRating = prev.Ratings[1].Value;
@@ -90,7 +96,7 @@ export default function List(props) {
         let nextRating = next.Ratings[1].Value;
         nextRating = nextRating.substring(0, nextRating.length - 1);
         nextRating = Number(nextRating);
-        //1 pushes previous rating
+        //-1 unshifts nextRating before previous, 1 pushes it after
         if (previousRating > nextRating) {
           return 1;
         } else if (previousRating < nextRating) {
@@ -101,7 +107,48 @@ export default function List(props) {
       });
     }
     if (rating === "worst") {
+      return movieList.sort((next, prev) => {
+        //initial check for undefined ratings, sort at end if found.
+        if (next.Ratings[1] === undefined) {
+          return 1;
+        }
+
+        if (prev.Ratings[1] === undefined) {
+          return -1;
+        }
+        //Grab the previous and next rating values and turn them into numbers for comparison
+        let previousRating = prev.Ratings[1].Value;
+        previousRating = previousRating.substring(0, previousRating.length - 1);
+        previousRating = Number(previousRating);
+
+        let nextRating = next.Ratings[1].Value;
+        nextRating = nextRating.substring(0, nextRating.length - 1);
+        nextRating = Number(nextRating);
+        //-1 unshifts nextRating before previous, 1 pushes it after
+        if (previousRating > nextRating) {
+          return -1;
+        } else if (previousRating < nextRating) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
     }
+  }
+
+  function checkSearch(movie) {
+    if (search === "") {
+      return movie;
+    }
+    return movie.Title.includes(search);
+  }
+
+  function checkDirector(movie) {
+    console.log(movie);
+    if (director === "") {
+      return movie;
+    }
+    return movie.Director.includes(director);
   }
 
   //Button click functions
@@ -132,7 +179,16 @@ export default function List(props) {
               <div className="search-row">
                 <label htmlFor="search">
                   Search
-                  <input type="text" name="search" id="search" />
+                  <input
+                    type="text"
+                    name="search"
+                    id="search"
+                    // controlled component for the searchbox
+                    onChange={(e) => {
+                      setSearch(e.target.value);
+                    }}
+                    value={search}
+                  />
                 </label>
               </div>
               <div className="watched-row">
@@ -207,11 +263,10 @@ export default function List(props) {
                   <input
                     type="text"
                     className="filter-item filter-item-director"
-                    onChange={() => {
-                      const option = document.querySelector(
-                        ".filter-item-director"
-                      );
+                    onChange={(e) => {
+                      setDirector(e.target.value);
                     }}
+                    value={director}
                   />
                 </label>
               </div>
