@@ -8,8 +8,13 @@ export default function List(props) {
   const [genre, setGenre] = useState("all");
   const [rating, setRating] = useState("none");
   const [director, setDirector] = useState("");
+  const [random, setRandom] = useState(false);
 
-  let filteredListItems = props.movieList
+  useEffect(() => {
+    setRandom(false);
+  }, [search, watched, genre, rating, director]);
+
+  let filteredList = props.movieList
     //Check each of the filter criteria before mapping the movie list.
     .filter((movie) => {
       return checkWatched(movie);
@@ -17,15 +22,17 @@ export default function List(props) {
     .filter((movie) => {
       return checkGenre(movie);
     });
-  checkRating(filteredListItems);
-  filteredListItems = filteredListItems
+  checkRating(filteredList);
+  filteredList = filteredList
     .filter((movie) => {
       return checkSearch(movie);
     })
     .filter((movie) => {
       return checkDirector(movie);
     });
-  filteredListItems = filteredListItems.map((movie) => {
+  randomButtonClick(filteredList);
+
+  let filteredListItems = filteredList.map((movie) => {
     return (
       <ListItems
         key={movie.imdbID}
@@ -144,7 +151,6 @@ export default function List(props) {
   }
 
   function checkDirector(movie) {
-    console.log(movie);
     if (director === "") {
       return movie;
     }
@@ -153,7 +159,17 @@ export default function List(props) {
 
   //Button click functions
   function randomButtonClick() {
-    let randomNumber = Math.floor(Math.random() * props.movieList.length);
+    if (random === false) {
+      return;
+    }
+    let newFilteredList = [];
+    let randomNumber = Math.floor(Math.random() * filteredList.length);
+    if (filteredList.length > 1) {
+      filteredList = filteredList[randomNumber];
+      newFilteredList.push(filteredList);
+      filteredList = newFilteredList;
+      console.log(filteredList);
+    }
   }
 
   function resetButtonClick() {
@@ -163,6 +179,7 @@ export default function List(props) {
     setGenre("all");
     setRating("none");
     setDirector("");
+    setRandom(false);
   }
 
   return (
@@ -274,14 +291,18 @@ export default function List(props) {
                 <button
                   type="button"
                   className="random-button"
-                  onClick={randomButtonClick}
+                  onClick={() => {
+                    setRandom(true);
+                  }}
                 >
                   Random!
                 </button>
                 <button
                   type="button"
                   className="reset-button"
-                  onClick={resetButtonClick}
+                  onClick={() => {
+                    resetButtonClick();
+                  }}
                 >
                   Reset
                 </button>
