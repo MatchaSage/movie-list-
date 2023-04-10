@@ -308,8 +308,6 @@ export default function App() {
     });
   }
 
-  console.log(movieList);
-
   function movieListDelete(selectedMovie) {
     setMovieList((oldMovies) => {
       return oldMovies.filter((movie) => {
