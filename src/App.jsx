@@ -7,6 +7,7 @@ import "./Styles/movieInfo.css";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
 import List from "./Components/List";
+import Share from "./Components/Share";
 import MovieInfo from "./Components/MovieInfo";
 import Footer from "./Components/Footer";
 
@@ -242,7 +243,7 @@ export default function App() {
     ],
   };
   //State for home/list/filter pages
-  const [showHome, setShowHome] = useState(true);
+  const [showPage, setShowPage] = useState("home");
   const [showInfo, setShowInfo] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
 
@@ -257,22 +258,23 @@ export default function App() {
   const [selectedMovie, setSelectedMovie] = useState([""]);
   //Functions to show various elements
   function showHomeSetter() {
-    if (showHome === false) {
-      setShowHome(true);
-      //Set the page to 100 view height whenever the homepage is shown. This is needed because both pages
-      //need different height styling in the app component.
-      document.querySelector(".app").style.height = "100vh";
-    }
+    setShowPage("home");
+    //Set the page to 100 view height whenever the homepage is shown. This is needed because both pages
+    //need different height styling in the app component.
+    document.querySelector(".app").style.height = "100vh";
   }
 
   function showListSetter() {
-    if (showHome === true) {
-      setShowHome(false);
-      //Set the page to 100% height whenever the list page is shown. This is needed because both pages
-      //need different height styling in the app component.
-      document.querySelector(".app").style.height = "100%";
-      document.querySelector(".app").style.minHeight = "100vh";
-    }
+    setShowPage("list");
+    //Set the page to 100% height whenever the list page is shown. This is needed because both pages
+    //need different height styling in the app component.
+    document.querySelector(".app").style.height = "100%";
+    document.querySelector(".app").style.minHeight = "100vh";
+  }
+
+  function showShareSetter() {
+    setShowPage("share");
+    document.querySelector(".app").style.height = "100vh";
   }
   function showInfoSetter() {
     if (showInfo === true) {
@@ -358,9 +360,13 @@ export default function App() {
 
   return (
     <div className="app">
-      <Header showHome={showHomeSetter} showList={showListSetter} />
+      <Header
+        showHome={showHomeSetter}
+        showList={showListSetter}
+        showShare={showShareSetter}
+      />
       {/*This conditionally renders either home or list page*/}
-      {showHome && (
+      {showPage === "home" && (
         <Home
           showInfo={showInfoSetter}
           homeSearchBar={homeSearchBar}
@@ -370,7 +376,7 @@ export default function App() {
           movieListAdd={movieListAdd}
         />
       )}
-      {!showHome && (
+      {showPage === "list" && (
         <List
           showInfo={showInfoSetter}
           listSearchBar={listSearchBar}
@@ -384,6 +390,7 @@ export default function App() {
           setShowFilter={showFilterSetter}
         />
       )}
+      {showPage === "share" && <Share />}
       {showInfo && (
         <MovieInfo
           selectedMovie={selectedMovie}
