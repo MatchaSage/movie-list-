@@ -328,14 +328,13 @@ export default function App() {
     setMovieList(TEST_OBJ.movies);
   }, []);
 
-  let imdbArray = [];
-
   async function storeIMDBID(IMDBID) {
     const res = await fetch(
       `http://www.omdbapi.com/?i=${IMDBID}&r=json&apikey=8ade757e`
     );
     const data = await res.json();
-    imdbArray.push(data);
+    // imdbArray.push(data);
+    setSearchResults((prev) => [...prev, data]);
   }
 
   //Api call to get movies
@@ -350,7 +349,6 @@ export default function App() {
           data.Search.slice(0, 5).map((movie) => {
             storeIMDBID(movie.imdbID);
           });
-          setSearchResults(imdbArray);
         }
       }
       getMovieIMDBID();

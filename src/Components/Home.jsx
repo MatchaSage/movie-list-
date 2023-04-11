@@ -2,13 +2,12 @@ import React from "react";
 import SearchItems from "./SearchItems";
 
 export default function Home(props) {
-  console.log(props.searchResults);
   let movieItems = [];
   function handleChange(event) {
     props.setSearchBar(event.target.value);
   }
 
-  if (props.searchResults != undefined) {
+  if (props.searchResults != undefined && props.searchResults.length != 0) {
     movieItems = props.searchResults.map((movie) => {
       return (
         <SearchItems
@@ -22,7 +21,6 @@ export default function Home(props) {
       );
     });
   }
-
   return (
     <div className="home">
       <h1>Movie List</h1>
