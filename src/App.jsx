@@ -262,6 +262,7 @@ export default function App() {
     //Set the page to 100 view height whenever the homepage is shown. This is needed because both pages
     //need different height styling in the app component.
     document.querySelector(".app").style.height = "100vh";
+    document.querySelector("header").style.paddingLeft = "0px";
   }
 
   function showListSetter() {
@@ -270,12 +271,16 @@ export default function App() {
     //need different height styling in the app component.
     document.querySelector(".app").style.height = "100%";
     document.querySelector(".app").style.minHeight = "100vh";
+    //Padding adjustment stops the jump that the header will do when going between mylist and other pages
+    document.querySelector("header").style.paddingLeft = "17px";
   }
 
   function showShareSetter() {
     setShowPage("share");
     document.querySelector(".app").style.height = "100vh";
+    document.querySelector("header").style.paddingLeft = "0px";
   }
+
   function showInfoSetter() {
     if (showInfo === true) {
       setShowInfo(false);
