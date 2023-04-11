@@ -334,6 +334,7 @@ export default function App() {
     );
     const data = await res.json();
     // imdbArray.push(data);
+
     setSearchResults((prev) => [...prev, data]);
   }
 
@@ -346,6 +347,8 @@ export default function App() {
         );
         const data = await res.json();
         if (data.Search != undefined) {
+          //Empty search results before addings more movies.
+          setSearchResults([]);
           data.Search.slice(0, 5).map((movie) => {
             storeIMDBID(movie.imdbID);
           });
