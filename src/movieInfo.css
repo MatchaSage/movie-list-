@@ -33,6 +33,7 @@
   align-self: flex-end;
   width: 30px;
   height: 30px;
+  border: none;
 }
 
 .movieInfo--buttons {

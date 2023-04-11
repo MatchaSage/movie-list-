@@ -2,13 +2,14 @@ import React from "react";
 import SearchItems from "./SearchItems";
 
 export default function Home(props) {
+  console.log(props.searchResults);
   let movieItems = [];
   function handleChange(event) {
     props.setSearchBar(event.target.value);
   }
 
-  if (props.searchResults.movies != undefined) {
-    movieItems = props.searchResults.movies.map((movie) => {
+  if (props.searchResults != undefined) {
+    movieItems = props.searchResults.map((movie) => {
       return (
         <SearchItems
           key={movie.imdbID}

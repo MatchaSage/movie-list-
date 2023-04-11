@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function MovieInfo(props) {
-  console.log(props.selectedMovie);
   let rating = catchRatingError(props.selectedMovie.Ratings);
 
   function catchRatingError(ratings) {
@@ -53,7 +52,7 @@ export default function MovieInfo(props) {
         >
           Add
         </button>
-        <button
+        {/* <button
           className="movieInfo--deleteMovie"
           onClick={props.movieListDelete}
         >
@@ -62,7 +61,7 @@ export default function MovieInfo(props) {
         <fieldset>
           <label htmlFor="watched">Watched</label>
           <input type="checkbox" htmlFor="watched"></input>
-        </fieldset>
+        </fieldset> */}
       </div>
     </div>
   );

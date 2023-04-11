@@ -324,14 +324,39 @@ export default function App() {
   }
 
   useEffect(() => {
-    setSearchResults(TEST_OBJ);
+    // setSearchResults(TEST_OBJ);
     setMovieList(TEST_OBJ.movies);
   }, []);
 
+  let imdbArray = [];
+
+  async function storeIMDBID(IMDBID) {
+    const res = await fetch(
+      `http://www.omdbapi.com/?i=${IMDBID}&r=json&apikey=8ade757e`
+    );
+    const data = await res.json();
+    imdbArray.push(data);
+  }
+
   //Api call to get movies
-  // useEffect(() => {
-  //   setSearchResults();
-  // }, [homeSearchBar]);
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      async function getMovieIMDBID() {
+        const res = await fetch(
+          `http://www.omdbapi.com/?s=${homeSearchBar}&r=json&apikey=8ade757e`
+        );
+        const data = await res.json();
+        if (data.Search != undefined) {
+          data.Search.slice(0, 5).map((movie) => {
+            storeIMDBID(movie.imdbID);
+          });
+          setSearchResults(imdbArray);
+        }
+      }
+      getMovieIMDBID();
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [homeSearchBar]);
 
   return (
     <div className="app">
