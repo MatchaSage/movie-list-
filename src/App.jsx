@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import "./app.css";
-import "./home.css";
-import "./list.css";
-import "./movieInfo.css";
+import "./Styles/app.css";
+import "./Styles/home.css";
+import "./Styles/list.css";
+import "./Styles/share.css";
+import "./Styles/movieInfo.css";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
 import List from "./Components/List";
+import Share from "./Components/Share";
 import MovieInfo from "./Components/MovieInfo";
 import Footer from "./Components/Footer";
 
@@ -241,7 +243,7 @@ export default function App() {
     ],
   };
   //State for home/list/filter pages
-  const [showHome, setShowHome] = useState(true);
+  const [showPage, setShowPage] = useState("home");
   const [showInfo, setShowInfo] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
 
@@ -256,23 +258,29 @@ export default function App() {
   const [selectedMovie, setSelectedMovie] = useState([""]);
   //Functions to show various elements
   function showHomeSetter() {
-    if (showHome === false) {
-      setShowHome(true);
-      //Set the page to 100 view height whenever the homepage is shown. This is needed because both pages
-      //need different height styling in the app component.
-      document.querySelector(".app").style.height = "100vh";
-    }
+    setShowPage("home");
+    //Set the page to 100 view height whenever the homepage is shown. This is needed because both pages
+    //need different height styling in the app component.
+    document.querySelector(".app").style.height = "100vh";
+    document.querySelector("header").style.paddingLeft = "0px";
   }
 
   function showListSetter() {
-    if (showHome === true) {
-      setShowHome(false);
-      //Set the page to 100% height whenever the list page is shown. This is needed because both pages
-      //need different height styling in the app component.
-      document.querySelector(".app").style.height = "100%";
-      document.querySelector(".app").style.minHeight = "100vh";
-    }
+    setShowPage("list");
+    //Set the page to 100% height whenever the list page is shown. This is needed because both pages
+    //need different height styling in the app component.
+    document.querySelector(".app").style.height = "100%";
+    document.querySelector(".app").style.minHeight = "100vh";
+    //Padding adjustment stops the jump that the header will do when going between mylist and other pages
+    document.querySelector("header").style.paddingLeft = "17px";
   }
+
+  function showShareSetter() {
+    setShowPage("share");
+    document.querySelector(".app").style.height = "100vh";
+    document.querySelector("header").style.paddingLeft = "0px";
+  }
+
   function showInfoSetter() {
     if (showInfo === true) {
       setShowInfo(false);
@@ -315,8 +323,22 @@ export default function App() {
       });
     });
   }
-  function setMovieWatch(movie) {
-    setMovieList();
+
+  function setMovieWatch(selectedMovie) {
+    setMovieList((oldMovies) => {
+      let newMovieArray = [];
+      for (let i = 0; i < oldMovies.length; i++) {
+        if (selectedMovie.imdbID === oldMovies[i].imdbID) {
+          newMovieArray.push({
+            ...oldMovies[i],
+            watched: !oldMovies[i].watched,
+          });
+        } else {
+          newMovieArray.push(oldMovies[i]);
+        }
+      }
+      return newMovieArray;
+    });
   }
   //Adds movie info to an object that holds it for the MofieInfo component
   function selectedMovieSetter(movie) {
@@ -326,6 +348,14 @@ export default function App() {
   useEffect(() => {
     // setSearchResults(TEST_OBJ);
     setMovieList(TEST_OBJ.movies);
+    setMovieList((oldMovies) => {
+      let newMovieArray = [];
+      for (let i = 0; i < oldMovies.length; i++) {
+        oldMovies[i].watched = false;
+        newMovieArray.push(oldMovies[i]);
+      }
+      return newMovieArray;
+    });
   }, []);
 
   async function storeIMDBID(IMDBID) {
@@ -361,9 +391,13 @@ export default function App() {
 
   return (
     <div className="app">
-      <Header showHome={showHomeSetter} showList={showListSetter} />
+      <Header
+        showHome={showHomeSetter}
+        showList={showListSetter}
+        showShare={showShareSetter}
+      />
       {/*This conditionally renders either home or list page*/}
-      {showHome && (
+      {showPage === "home" && (
         <Home
           showInfo={showInfoSetter}
           homeSearchBar={homeSearchBar}
@@ -373,7 +407,7 @@ export default function App() {
           movieListAdd={movieListAdd}
         />
       )}
-      {!showHome && (
+      {showPage === "list" && (
         <List
           showInfo={showInfoSetter}
           listSearchBar={listSearchBar}
@@ -387,6 +421,7 @@ export default function App() {
           setShowFilter={showFilterSetter}
         />
       )}
+      {showPage === "share" && <Share />}
       {showInfo && (
         <MovieInfo
           selectedMovie={selectedMovie}

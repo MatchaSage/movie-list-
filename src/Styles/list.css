@@ -120,7 +120,10 @@
 .button-row {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
 .button-row button {
@@ -131,6 +134,10 @@
   border-radius: 4px;
   background-color: #2abbd5;
   cursor: pointer;
+}
+
+button.reset-button {
+  background-color: rgb(85, 184, 105);
 }
 
 /**End of filter drop down**/

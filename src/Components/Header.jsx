@@ -9,6 +9,9 @@ export default function Header(props) {
       <h2 className="list--button" onClick={props.showList}>
         My List
       </h2>
+      <h2 className="share--button" onClick={props.showShare}>
+        Share
+      </h2>
     </header>
   );
 }

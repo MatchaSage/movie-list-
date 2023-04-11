@@ -45,6 +45,11 @@ export default function ListItems(props) {
     filter: isHover ? "brightness(50%)" : "none",
   };
 
+  function movieBackgroundClick() {
+    props.showInfo();
+    props.setSelectedMovie(props.movie);
+  }
+
   return (
     <div className="list-items">
       <div
@@ -56,11 +61,19 @@ export default function ListItems(props) {
           src={props.movie.Poster}
           alt="poster"
           style={elementDarken}
-          onClick={props.showInfo}
+          onClick={movieBackgroundClick}
         />
         <div className="watched-container" style={elementDisplay}>
           <label>Watched</label>
-          <input type="checkbox" id="watched" name="watched" />
+          <input
+            type="checkbox"
+            id="watched"
+            name="watched"
+            onChange={() => {
+              props.setWatched(props.movie);
+            }}
+            checked={props.movie.watched === false ? false : true}
+          />
         </div>
         <div className="button-container" style={elementDisplay}>
           <button
