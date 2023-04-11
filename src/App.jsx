@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import "./app.css";
-import "./home.css";
-import "./list.css";
-import "./movieInfo.css";
+import "./Styles/app.css";
+import "./Styles/home.css";
+import "./Styles/list.css";
+import "./Styles/share.css";
+import "./Styles/movieInfo.css";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
 import List from "./Components/List";
