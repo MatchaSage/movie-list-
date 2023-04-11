@@ -312,6 +312,7 @@ export default function App() {
           return [...oldMovies];
         }
       }
+      newMovie.watched = false;
       return [...oldMovies, newMovie];
     });
   }
