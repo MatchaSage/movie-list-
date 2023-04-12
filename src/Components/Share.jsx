@@ -15,6 +15,28 @@ export default function Share(props) {
     }
   }
 
+  async function addMovie(imdbID) {
+    const res = await fetch(
+      `http://www.omdbapi.com/?i=${imdbID}&r=json&apikey=8ade757e`
+    );
+    const data = await res.json();
+    // add to movie list
+    props.movieListAdd(data);
+  }
+
+  function importMovies() {
+    //Get the import textbox value
+    let importValue = document.getElementById("import").value;
+    try {
+      importValue = JSON.parse(importValue);
+      for (let i = 0; i < importValue.length; i++) {
+        addMovie(importValue[i]);
+      }
+    } catch (err) {
+      console.log("Invalid import value", err);
+    }
+  }
+
   return (
     <div className="share">
       <h1>Share</h1>
@@ -31,6 +53,15 @@ export default function Share(props) {
       <div className="import-row">
         <label htmlFor="import">Import</label>
         <input type="text" id="import" />
+        <button
+          type="button"
+          className="import-button"
+          onClick={() => {
+            importMovies();
+          }}
+        >
+          Import
+        </button>
       </div>
     </div>
   );

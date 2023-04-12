@@ -60,3 +60,19 @@
   height: 30px;
   width: 200px;
 }
+
+.import-row button {
+  font-family: inter, Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  height: 40px;
+  width: 120px;
+  border-radius: 8px;
+  border: none;
+  padding-bottom: 5px;
+  background-color: black;
+  color: white;
+}
+
+.import-row button:hover {
+  background-color: rgb(217, 78, 78);
+}

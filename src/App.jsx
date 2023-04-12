@@ -313,8 +313,14 @@ export default function App() {
         }
       }
       newMovie.watched = false;
+      console.log(newMovie);
       return [...oldMovies, newMovie];
     });
+  }
+
+  function movieListImport(movieArray) {
+    console.log("Inside movielistimport");
+    console.log(movieArray);
   }
 
   function movieListDelete(selectedMovie) {
@@ -341,6 +347,7 @@ export default function App() {
       return newMovieArray;
     });
   }
+
   //Adds movie info to an object that holds it for the MofieInfo component
   function selectedMovieSetter(movie) {
     setSelectedMovie(movie);
@@ -365,7 +372,6 @@ export default function App() {
     );
     const data = await res.json();
     // imdbArray.push(data);
-
     setSearchResults((prev) => [...prev, data]);
   }
 
@@ -422,7 +428,9 @@ export default function App() {
           setShowFilter={showFilterSetter}
         />
       )}
-      {showPage === "share" && <Share movieList={movieList} />}
+      {showPage === "share" && (
+        <Share movieList={movieList} movieListAdd={movieListAdd} />
+      )}
       {showInfo && (
         <MovieInfo
           selectedMovie={selectedMovie}
