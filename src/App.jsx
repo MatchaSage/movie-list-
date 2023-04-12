@@ -422,7 +422,7 @@ export default function App() {
           setShowFilter={showFilterSetter}
         />
       )}
-      {showPage === "share" && <Share />}
+      {showPage === "share" && <Share movieList={movieList} />}
       {showInfo && (
         <MovieInfo
           selectedMovie={selectedMovie}

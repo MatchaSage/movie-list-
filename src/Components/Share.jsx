@@ -1,6 +1,20 @@
 import React from "react";
 
-export default function Share() {
+export default function Share(props) {
+  async function copyContent() {
+    let imdbArray = [];
+    for (let i = 0; i < props.movieList.length; i++) {
+      imdbArray.push(props.movieList[i].imdbID);
+    }
+
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(imdbArray));
+      console.log("content copied to clipboard");
+    } catch (err) {
+      console.log("Failed to copy: ", err);
+    }
+  }
+
   return (
     <div className="share">
       <h1>Share</h1>
@@ -10,7 +24,7 @@ export default function Share() {
           friends! Just give them the output and have them put it into import
           box.
         </p>
-        <button type="button" className="copy-button">
+        <button type="button" className="copy-button" onClick={copyContent}>
           Copy
         </button>
       </div>
