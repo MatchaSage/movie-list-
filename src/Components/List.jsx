@@ -23,7 +23,6 @@ export default function List(props) {
   useEffect(() => {
     let handler = (e) => {
       if (dropRef.current !== undefined && dropRef.current !== null) {
-        console.log(dropRef);
         //Basically saying if both the filter button and the menu aren't clicked on.
         //Filter button must be accounted for here, otherwise setShowFilter will fire twice.
         if (
@@ -40,7 +39,7 @@ export default function List(props) {
       document.removeEventListener("mousedown", handler);
     };
   }, [props.showFilter]);
-  console.log(props.showFilter);
+
   //Check each of the filter criteria before mapping the movie list.
   let filteredListItems;
   let filteredList = props.movieList
@@ -73,7 +72,7 @@ export default function List(props) {
       />
     );
   });
-
+  console.log(filteredList);
   function checkWatched(movie) {
     if (watched === "all") {
       return movie;
@@ -191,7 +190,6 @@ export default function List(props) {
     if (random === false) {
       return;
     }
-    console.log(filteredList);
     //Add to a new array just so that my .maps don't break.
     let newFilteredList = [];
     let randomNumber;

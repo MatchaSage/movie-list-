@@ -253,9 +253,18 @@ export default function App() {
 
   //State for our lists of movies
   const [searchResults, setSearchResults] = useState([]);
-  const [movieList, setMovieList] = useState([]);
+  const [movieList, setMovieList] = useState(setMovieLocalStorage());
   //Selected movie that will be displayed in movieInfo
   const [selectedMovie, setSelectedMovie] = useState([""]);
+
+  function setMovieLocalStorage() {
+    if (localStorage.getItem("movies") === null) {
+      return [];
+    } else {
+      const movieString = localStorage.getItem("movies");
+      return JSON.parse(movieString);
+    }
+  }
   //Functions to show various elements
   function showHomeSetter() {
     setShowPage("home");
@@ -290,7 +299,6 @@ export default function App() {
   }
 
   function showFilterSetter() {
-    console.log("fired");
     if (showFilter === true) {
       setShowFilter(false);
     } else {
@@ -306,17 +314,20 @@ export default function App() {
   }
   //Functions to set the arrays for movies.
   function movieListAdd(newMovie) {
-    setMovieList((oldMovies) => {
-      //Checks for duplicate movies
-      for (let i = 0; i < oldMovies.length; i++) {
-        if (oldMovies[i].imdbID === newMovie.imdbID) {
-          return [...oldMovies];
+    if (movieList !== undefined) {
+      setMovieList((oldMovies) => {
+        //Checks for duplicate movies
+        for (let i = 0; i < oldMovies.length; i++) {
+          if (oldMovies[i].imdbID === newMovie.imdbID) {
+            return [...oldMovies];
+          }
         }
-      }
-      newMovie.watched = false;
-      console.log(newMovie);
-      return [...oldMovies, newMovie];
-    });
+        newMovie.watched = false;
+        return [...oldMovies, newMovie];
+      });
+    } else {
+      setMovieList([newMovie]);
+    }
   }
 
   function movieListDelete(selectedMovie) {
@@ -348,19 +359,15 @@ export default function App() {
   function selectedMovieSetter(movie) {
     setSelectedMovie(movie);
   }
+  //Initial useEffect to get the local storage.
+  // useEffect(() => {
+  //   let movieString = localStorage.getItem("movies");
+  //   setMovieList(JSON.parse(movieString));
+  // }, []);
 
   useEffect(() => {
-    // setSearchResults(TEST_OBJ);
-    setMovieList(TEST_OBJ.movies);
-    setMovieList((oldMovies) => {
-      let newMovieArray = [];
-      for (let i = 0; i < oldMovies.length; i++) {
-        oldMovies[i].watched = false;
-        newMovieArray.push(oldMovies[i]);
-      }
-      return newMovieArray;
-    });
-  }, []);
+    localStorage.setItem("movies", JSON.stringify(movieList));
+  }, [movieList]);
 
   async function storeIMDBID(IMDBID) {
     const res = await fetch(
