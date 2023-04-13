@@ -290,6 +290,7 @@ export default function App() {
   }
 
   function showFilterSetter() {
+    console.log("fired");
     if (showFilter === true) {
       setShowFilter(false);
     } else {
@@ -316,11 +317,6 @@ export default function App() {
       console.log(newMovie);
       return [...oldMovies, newMovie];
     });
-  }
-
-  function movieListImport(movieArray) {
-    console.log("Inside movielistimport");
-    console.log(movieArray);
   }
 
   function movieListDelete(selectedMovie) {
