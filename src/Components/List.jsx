@@ -22,6 +22,7 @@ export default function List(props) {
 
   useEffect(() => {
     let handler = (e) => {
+      //After the filter button is hit once, the next time the dropdown dissapears it will be null instead of undefined.
       if (dropRef.current !== undefined && dropRef.current !== null) {
         //Basically saying if both the filter button and the menu aren't clicked on.
         //Filter button must be accounted for here, otherwise setShowFilter will fire twice.
