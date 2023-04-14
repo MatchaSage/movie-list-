@@ -6,7 +6,7 @@ export default function Home(props) {
   function handleChange(event) {
     props.setSearchBar(event.target.value);
   }
-  console.log(props.searchResults);
+
   if (props.searchResults != undefined && props.searchResults.length != 0) {
     movieItems = props.searchResults.map((movie) => {
       return (

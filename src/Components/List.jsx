@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ListItems from "./ListItems";
 import FilterImg from "../img/filter.png";
 
@@ -9,15 +9,41 @@ export default function List(props) {
   const [rating, setRating] = useState("none");
   const [director, setDirector] = useState("");
   const [random, setRandom] = useState(false);
+  //Refs that help me target divs to use for my filter menu logic.
+  let dropRef = useRef();
+  let filterRef = useRef();
 
+  //Resets the random number in local storage if we any of my filter state changes.
+  //This is done so that the filter menu is still useable after hitting the random button.
   useEffect(() => {
     setRandom(false);
     localStorage.setItem("random", "null");
   }, [search, watched, genre, rating, director]);
 
+  useEffect(() => {
+    let handler = (e) => {
+      //After the filter button is hit once, the next time the dropdown dissapears it will be null instead of undefined.
+      if (dropRef.current !== undefined && dropRef.current !== null) {
+        //Basically saying if both the filter button and the menu aren't clicked on.
+        //Filter button must be accounted for here, otherwise setShowFilter will fire twice.
+        if (
+          !dropRef.current.contains(e.target) &&
+          !filterRef.current.contains(e.target)
+        ) {
+          props.setShowFilter();
+        }
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  }, [props.showFilter]);
+
+  //Check each of the filter criteria before mapping the movie list.
   let filteredListItems;
   let filteredList = props.movieList
-    //Check each of the filter criteria before mapping the movie list.
     .filter((movie) => {
       return checkWatched(movie);
     })
@@ -32,8 +58,8 @@ export default function List(props) {
     .filter((movie) => {
       return checkDirector(movie);
     });
+  //Check if random button has been clicked and filter if so
   randomButtonClick(filteredList);
-  console.log(filteredList);
   filteredListItems = filteredList.map((movie) => {
     return (
       <ListItems
@@ -47,7 +73,7 @@ export default function List(props) {
       />
     );
   });
-
+  console.log(filteredList);
   function checkWatched(movie) {
     if (watched === "all") {
       return movie;
@@ -165,7 +191,6 @@ export default function List(props) {
     if (random === false) {
       return;
     }
-    console.log(filteredList);
     //Add to a new array just so that my .maps don't break.
     let newFilteredList = [];
     let randomNumber;
@@ -201,12 +226,16 @@ export default function List(props) {
       <h1>Your List</h1>
       <div className="filter-row">
         <div className="filter-container">
-          <div className="filter-buttons" onClick={props.setShowFilter}>
+          <div
+            className="filter-buttons"
+            onClick={props.setShowFilter}
+            ref={filterRef}
+          >
             <span>Filter</span>
             <img className="filter-img" src={FilterImg} alt="Filter" />
           </div>
           {props.showFilter && (
-            <div className="filter-drop-down">
+            <div className="filter-drop-down" ref={dropRef}>
               <div className="search-row">
                 <label htmlFor="search">
                   Search
