@@ -364,11 +364,6 @@ export default function App() {
       `http://www.omdbapi.com/?i=${IMDBID}&r=json&apikey=8ade757e`
     );
     const data = await res.json();
-<<<<<<< HEAD
-=======
-    // imdbArray.push(data);
-
->>>>>>> 09df09a9baebf0be41483b42b410c06022a0b790
     setSearchResults((prev) => [...prev, data]);
   }
 
