@@ -207,6 +207,7 @@ export default function List(props) {
     if (filteredList[0] === undefined) {
       filteredList = [];
     }
+    //Local storage to make sure the random number doesn't change unexpectedly.
     localStorage.setItem("random", randomNumber);
   }
 
