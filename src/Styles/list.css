@@ -157,6 +157,7 @@ button.reset-button {
 /**ListItems.jsx start**/
 .list-items {
   height: 100%;
+  width: 250px;
 }
 
 .list-items-card {
