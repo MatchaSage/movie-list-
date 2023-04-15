@@ -177,6 +177,7 @@ export default function App() {
           homeSearchBar={homeSearchBar}
           setSearchBar={homeSearchSetter}
           searchResults={searchResults}
+          setSearchResults={setSearchResults}
           setSelectedMovie={selectedMovieSetter}
           movieListAdd={movieListAdd}
         />

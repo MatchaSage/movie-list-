@@ -28,15 +28,27 @@ export default function searchItems(props) {
     }
   }
 
-  function handleClick() {
-    props.showInfo();
+  function handleClick(e) {
+    if (e.target.className != "movie-card--addMovieButton") {
+      props.showInfo();
+    }
     props.setSelectedMovie(props.movie);
+  }
+
+  function checkTitleLength(title) {
+    if (title.length > 46) {
+      return `${title.slice(0, 46)}...`;
+    } else {
+      return title;
+    }
   }
 
   return (
     <div className="movie-card" onClick={handleClick}>
       <div>
-        <span className="movie-card--title">{props.movie.Title}</span>
+        <span className="movie-card--title">
+          {checkTitleLength(props.movie.Title)}
+        </span>
         <span className={`movie-card--rating" ${ratingColor}`}>{rating}</span>
       </div>
       <button

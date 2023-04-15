@@ -73,7 +73,7 @@ export default function List(props) {
       />
     );
   });
-  console.log(filteredList);
+
   function checkWatched(movie) {
     if (watched === "all") {
       return movie;
