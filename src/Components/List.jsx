@@ -215,8 +215,11 @@ export default function List(props) {
     //Returns each filter criteria to default
     setSearch("");
     setWatched("all");
+    document.getElementById("watched-select").value = "all";
     setGenre("all");
+    document.getElementById("genre-select").value = "all";
     setRating("none");
+    document.getElementById("rating-select").value = "none";
     setDirector("");
     setRandom(false);
     localStorage.setItem("random", "null");
