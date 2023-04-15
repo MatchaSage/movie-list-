@@ -3,7 +3,6 @@ import SearchItems from "./SearchItems";
 
 export default function Home(props) {
   let movieItems = [];
-  console.log(props.searchResults);
 
   props.searchResults.sort((next, prev) => {
     //initial check for undefined ratings, sort at end if found.
@@ -59,7 +58,7 @@ export default function Home(props) {
   });
   return (
     <div className="home">
-      <h1>Movie List</h1>
+      <h1>The List</h1>
       <input
         className="home--search-bar"
         type="text"

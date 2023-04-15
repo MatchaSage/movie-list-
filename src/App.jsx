@@ -26,6 +26,7 @@ export default function App() {
   const [movieList, setMovieList] = useState(setMovieLocalStorage());
   //Selected movie that will be displayed in movieInfo
   const [selectedMovie, setSelectedMovie] = useState([""]);
+  //State to check if the page has a scrollbar
 
   function setMovieLocalStorage() {
     if (localStorage.getItem("movies") === null) {
@@ -41,7 +42,6 @@ export default function App() {
     //Set the page to 100 view height whenever the homepage is shown. This is needed because both pages
     //need different height styling in the app component.
     document.querySelector(".app").style.height = "100vh";
-    document.querySelector("header").style.paddingLeft = "0px";
   }
 
   function showListSetter() {
@@ -51,13 +51,11 @@ export default function App() {
     document.querySelector(".app").style.height = "100%";
     document.querySelector(".app").style.minHeight = "100vh";
     //Padding adjustment stops the jump that the header will do when going between mylist and other pages
-    document.querySelector("header").style.paddingLeft = "17px";
   }
 
   function showShareSetter() {
     setShowPage("share");
     document.querySelector(".app").style.height = "100vh";
-    document.querySelector("header").style.paddingLeft = "0px";
   }
 
   function showInfoSetter() {
@@ -129,6 +127,14 @@ export default function App() {
   function selectedMovieSetter(movie) {
     setSelectedMovie(movie);
   }
+  //Use effect to check if the scrollbar is on the page, and style the header accordingly.
+  useEffect(() => {
+    if (document.body.clientHeight > window.innerHeight) {
+      document.querySelector("header").style.paddingLeft = "17px";
+    } else {
+      document.querySelector("header").style.paddingLeft = "0px";
+    }
+  }, [showPage, movieList]);
 
   useEffect(() => {
     localStorage.setItem("movies", JSON.stringify(movieList));
