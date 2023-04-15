@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchItems from "./SearchItems";
 
 export default function Home(props) {
@@ -35,26 +35,28 @@ export default function Home(props) {
   function handleChange(event) {
     props.setSearchBar(event.target.value);
   }
-
-  if (props.searchResults != undefined && props.searchResults.length != 0) {
-    if (props.homeSearchBar === "") {
-      movieItems = [];
-      props.setSearchResults([]);
-    } else {
-      movieItems = props.searchResults.map((movie) => {
-        return (
-          <SearchItems
-            key={movie.imdbID}
-            id={movie.imdbID}
-            showInfo={props.showInfo}
-            movie={movie}
-            setSelectedMovie={props.setSelectedMovie}
-            movieListAdd={props.movieListAdd}
-          />
-        );
-      });
+  //Check
+  useEffect(() => {
+    if (props.searchResults != undefined && props.searchResults.length != 0) {
+      if (props.homeSearchBar === "") {
+        movieItems = [];
+        props.setSearchResults([]);
+      }
     }
-  }
+  }, [props.homeSearchBar]);
+
+  movieItems = props.searchResults.map((movie) => {
+    return (
+      <SearchItems
+        key={movie.imdbID}
+        id={movie.imdbID}
+        showInfo={props.showInfo}
+        movie={movie}
+        setSelectedMovie={props.setSelectedMovie}
+        movieListAdd={props.movieListAdd}
+      />
+    );
+  });
   return (
     <div className="home">
       <h1>Movie List</h1>
