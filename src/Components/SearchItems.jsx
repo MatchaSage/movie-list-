@@ -3,10 +3,16 @@ import React, { useState, useEffect } from "react";
 export default function searchItems(props) {
   let rating = catchRatingError(props.movie.Ratings);
   let ratingColor = setRatingColor(rating);
+
   function catchRatingError(ratings) {
-    if (ratings[1] !== undefined) {
-      let ratingString = ratings[1].Value.split("%")[0];
-      return ratingString;
+    let tmp = "";
+    ratings.forEach((rating) => {
+      if (rating.Source == "Rotten Tomatoes") {
+        tmp = rating.Value;
+      }
+    });
+    if (tmp != "") {
+      return tmp.split("%");
     } else {
       return "";
     }
@@ -35,7 +41,7 @@ export default function searchItems(props) {
     props.setSelectedMovie(props.movie);
   }
 
-  function checkTitleLength(title) {
+  function truncateTitle(title) {
     if (title.length > 46) {
       return `${title.slice(0, 46)}...`;
     } else {
@@ -47,18 +53,20 @@ export default function searchItems(props) {
     <div className="movie-card" onClick={handleClick}>
       <div>
         <span className="movie-card--title">
-          {checkTitleLength(props.movie.Title)}
+          {truncateTitle(props.movie.Title)}
         </span>
-        <span className={`movie-card--rating" ${ratingColor}`}>{rating}</span>
       </div>
-      <button
-        className="movie-card--addMovieButton"
-        onClick={() => {
-          props.movieListAdd(props.movie);
-        }}
-      >
-        ADD
-      </button>
+      <div className="rating-add-block">
+        <span className={`movie-card--rating" ${ratingColor}`}>{rating}</span>
+        <button
+          className="movie-card--addMovieButton"
+          onClick={() => {
+            props.movieListAdd(props.movie);
+          }}
+        >
+          ADD
+        </button>
+      </div>
     </div>
   );
 }

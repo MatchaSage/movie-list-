@@ -61,7 +61,8 @@ input {
 .movie-card--addMovieButton {
   background-color: green;
   border: none;
-  width: 10%;
+  width: 100px;
+  height: 29px;
   font-size: 1.1rem;
 }
 
@@ -83,4 +84,15 @@ input {
 
 .movie-rating-below-60 {
   background-color: red;
+}
+
+.movie-rating-90,
+.movie-rating-80,
+.movie-rating-70,
+.movie-rating-60,
+.movie-rating-below-60 {
+  border-radius: 5px;
+  padding-left: 2px;
+  padding-right: 2px;
+  font-size: 1.5rem;
 }
