@@ -3,6 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+/*Fixes the page moving left bug for mobile.*/
+html,
+body {
+  width: auto !important;
+  overflow-x: hidden !important;
+}
 
 .app {
   display: flex;
