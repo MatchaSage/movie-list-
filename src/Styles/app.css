@@ -23,13 +23,14 @@ body {
 
 header {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 150px;
+  /* gap: 150px; */
   min-height: 60px;
   width: 100%;
   background-color: black;
   color: white;
+  padding-left: 100px;
 }
 
 header h2 {
