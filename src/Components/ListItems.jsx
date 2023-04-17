@@ -12,7 +12,7 @@ export default function ListItems(props) {
   function handleHoverLeave() {
     setIsHover(false);
   }
-  console.log(props.movie);
+
   function returnRating() {
     for (let i = 0; i < props.movie.Ratings.length; i++) {
       if (props.movie.Ratings[i].Source === "Rotten Tomatoes") {
