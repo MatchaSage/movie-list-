@@ -130,12 +130,18 @@ export default function App() {
     setSelectedMovie(movie);
   }
 
+  function movieInfoListener(e) {
+    if (!e.target.classList.contains("infoDiv") && showInfo) {
+      setShowInfo(false);
+    }
+  }
+
   useEffect(() => {
-    document.addEventListener("mousedown", (e) => {
-      if (!e.target.classList.contains("infoDiv") && showInfo) {
-        setShowInfo(false);
-      }
-    });
+    if (showInfo) {
+      document.addEventListener("mousedown", movieInfoListener);
+    } else {
+      document.removeEventListener("mousedown", movieInfoListener);
+    }
   });
 
   useEffect(() => {
