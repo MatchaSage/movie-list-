@@ -132,7 +132,7 @@ export default function App() {
 
   useEffect(() => {
     document.addEventListener("mousedown", (e) => {
-      if (!e.target.classList.contains("infoDiv", "movieInfo") && showInfo) {
+      if (!e.target.classList.contains("infoDiv") && showInfo) {
         setShowInfo(false);
       }
     });

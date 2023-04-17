@@ -13,7 +13,7 @@ export default function MovieInfo(props) {
   }
 
   return (
-    <div className="movieInfo">
+    <div className="infoDiv movieInfo">
       <button className="movieInfo--exitInfo" onClick={props.showInfo}>
         X
       </button>
