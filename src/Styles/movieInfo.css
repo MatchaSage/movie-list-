@@ -70,3 +70,10 @@ fieldset {
   border: none;
   font-size: 1.3rem;
 }
+
+/*Media Query*/
+@media screen and (max-width: 675px) {
+  .movieInfo--description {
+    display: none;
+  }
+}

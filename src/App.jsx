@@ -220,6 +220,7 @@ export default function App() {
           movieListAdd={movieListAdd}
           movieListDelete={movieListDelete}
           movieListWatched={setMovieWatch}
+          showPage={showPage}
         />
       )}
       <Footer />

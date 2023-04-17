@@ -11,6 +11,7 @@ export default function MovieInfo(props) {
       return "";
     }
   }
+  console.log(window.innerWidth);
 
   return (
     <div className="infoDiv movieInfo">
