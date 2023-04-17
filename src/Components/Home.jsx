@@ -3,7 +3,6 @@ import SearchItems from "./SearchItems";
 
 export default function Home(props) {
   let movieItems = [];
-
   props.searchResults.sort((next, prev) => {
     //initial check for undefined ratings, sort at end if found.
     if (next.Ratings[1] === undefined) {

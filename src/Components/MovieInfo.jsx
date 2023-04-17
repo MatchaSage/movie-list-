@@ -17,35 +17,37 @@ export default function MovieInfo(props) {
       <button className="movieInfo--exitInfo" onClick={props.showInfo}>
         X
       </button>
-      <span className="movieInfo--title">{props.selectedMovie.Title}</span>
-      <div className="movieInfo--information-block">
-        <span className="movieInfo--description">
+      <span className="infoDiv movieInfo--title">
+        {props.selectedMovie.Title}
+      </span>
+      <div className="infoDiv movieInfo--information-block">
+        <span className="infoDiv movieInfo--description">
           Description: {props.selectedMovie.Plot}
         </span>
-        <span className="movieInfo--director">
+        <span className="infoDiv movieInfo--director">
           Director: {props.selectedMovie.Director}
         </span>
-        <span className="movieInfo--writer">
+        <span className="infoDiv movieInfo--writer">
           Writer: {props.selectedMovie.Writer}
         </span>
-        <span className="movieInfo--actors">
+        <span className="infoDiv movieInfo--actors">
           Actors: {props.selectedMovie.Actors}
         </span>
-        <span className="movieInfo--realeaseDate">
+        <span className="infoDiv movieInfo--realeaseDate">
           Release: {props.selectedMovie.Released}
         </span>
-        <span className="movieInfo--ratingRottenTomatoes">
+        <span className="infoDiv movieInfo--ratingRottenTomatoes">
           Rotten Tomatoes: &nbsp;
           {rating}
         </span>
-        <span className="movieInfo--boxOffice">
+        <span className="infoDiv movieInfo--boxOffice">
           Boxoffice: {props.selectedMovie.BoxOffice}
         </span>
       </div>
 
-      <div className="movieInfo--buttons">
+      <div className="infoDiv movieInfo--buttons">
         <button
-          className="movieInfo--addMovie"
+          className="infoDiv movieInfo--addMovie"
           onClick={() => {
             props.movieListAdd(props.selectedMovie);
           }}

@@ -131,6 +131,14 @@ export default function App() {
   }
 
   useEffect(() => {
+    document.addEventListener("mousedown", (e) => {
+      if (!e.target.classList.contains("infoDiv", "movieInfo") && showInfo) {
+        setShowInfo(false);
+      }
+    });
+  });
+
+  useEffect(() => {
     localStorage.setItem("movies", JSON.stringify(movieList));
   }, [movieList]);
 

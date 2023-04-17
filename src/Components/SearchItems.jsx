@@ -14,7 +14,7 @@ export default function searchItems(props) {
     if (tmp != "") {
       return tmp.split("%");
     } else {
-      return "";
+      return;
     }
   }
   function setRatingColor(rating) {
