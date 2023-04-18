@@ -104,6 +104,10 @@ export default function App() {
         return movie.imdbID !== selectedMovie.imdbID;
       });
     });
+    //Removes the movie info display if they click delete in the movie info container.
+    if (showInfo === true) {
+      setShowInfo(false);
+    }
   }
 
   function setMovieWatch(selectedMovie) {

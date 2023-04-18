@@ -62,14 +62,21 @@ export default function MovieInfo(props) {
             <button
               className="infoDiv movieInfo--deleteMovie"
               onClick={() => {
+                console.log("fuck");
                 props.movieListDelete(props.selectedMovie);
               }}
             >
               Delete
             </button>
 
-            <label htmlFor="watched">Watched</label>
-            <input htmlFor="watched" type="checkbox"></input>
+            <label htmlFor="watched" className="infoDiv">
+              Watched
+            </label>
+            <input
+              htmlFor="watched"
+              className="infoDiv"
+              type="checkbox"
+            ></input>
           </div>
         )}
       </div>
