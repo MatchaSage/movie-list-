@@ -228,10 +228,11 @@ export default function App() {
       {showInfo && (
         <MovieInfo
           selectedMovie={selectedMovie}
+          setSelectedMovie={setSelectedMovie}
           showInfo={showInfoSetter}
           movieListAdd={movieListAdd}
           movieListDelete={movieListDelete}
-          movieListWatched={setMovieWatch}
+          setWatched={setMovieWatch}
           showPage={showPage}
         />
       )}

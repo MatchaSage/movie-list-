@@ -4,7 +4,7 @@ export default function ListItems(props) {
   const [isHover, setIsHover] = useState(false);
   const rating = returnRating();
   const ratingColor = returnRatingColor(rating);
-  console.log(props.movie);
+
   function handleHoverEnter() {
     setIsHover(true);
   }

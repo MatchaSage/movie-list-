@@ -2,7 +2,7 @@ import React from "react";
 
 export default function MovieInfo(props) {
   let rating = catchRatingError(props.selectedMovie.Ratings);
-
+  console.log(props.selectedMovie);
   function catchRatingError(ratings) {
     if (ratings[1] !== undefined) {
       let ratingString = ratings[1].Value.split("%")[0];
@@ -62,21 +62,32 @@ export default function MovieInfo(props) {
             <button
               className="infoDiv movieInfo--deleteMovie"
               onClick={() => {
-                console.log("fuck");
                 props.movieListDelete(props.selectedMovie);
               }}
             >
               Delete
             </button>
 
-            <label htmlFor="watched" className="infoDiv">
-              Watched
-            </label>
+            <label className="infoDiv">Watched</label>
             <input
-              htmlFor="watched"
-              className="infoDiv"
               type="checkbox"
-            ></input>
+              id="watched"
+              name="watched"
+              className="infoDiv"
+              onChange={() => {
+                console.log("fired");
+                props.setWatched(props.selectedMovie);
+                //Set the selected movie for movie info info to the opposite of the watched attribute
+                //when the watched checkbox is clicked
+                props.setSelectedMovie((prev) => {
+                  return {
+                    ...prev,
+                    watched: !prev.watched,
+                  };
+                });
+              }}
+              checked={props.selectedMovie.watched === false ? false : true}
+            />
           </div>
         )}
       </div>
