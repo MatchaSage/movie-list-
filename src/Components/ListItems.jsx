@@ -14,9 +14,11 @@ export default function ListItems(props) {
   }
 
   function returnRating() {
-    if (props.movie.Ratings[1]) {
-      let rating = props.movie.Ratings[1].Value;
-      return rating.substring(0, rating.length - 1);
+    for (let i = 0; i < props.movie.Ratings.length; i++) {
+      if (props.movie.Ratings[i].Source === "Rotten Tomatoes") {
+        let rating = props.movie.Ratings[i].Value;
+        return rating.substring(0, rating.length - 1);
+      }
     }
   }
   //Css for this can be found in home

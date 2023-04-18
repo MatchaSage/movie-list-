@@ -3,6 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+/*Fixes the page moving left bug for mobile.*/
+html,
+body {
+  width: auto !important;
+  overflow-x: hidden !important;
+}
 
 .app {
   display: flex;
@@ -17,13 +23,14 @@
 
 header {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 150px;
+  /* gap: 150px; */
   min-height: 60px;
   width: 100%;
   background-color: black;
   color: white;
+  padding-left: 100px;
 }
 
 header h2 {
