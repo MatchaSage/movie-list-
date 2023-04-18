@@ -237,3 +237,15 @@ button.reset-button {
 }
 
 /**ListItems.jsx end**/
+
+/**Media Queries Start**/
+@media screen and (max-width: 675px) {
+  .filter-buttons span {
+    display: none;
+  }
+
+  .filter-buttons {
+    right: 10px;
+  }
+}
+/**Media Queries End**/
