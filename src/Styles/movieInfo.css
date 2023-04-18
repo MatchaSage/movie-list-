@@ -73,7 +73,25 @@ fieldset {
 
 /*Media Query*/
 @media screen and (max-width: 675px) {
-  .movieInfo--description {
-    display: none;
+  .movieInfo {
+    overflow-y: scroll;
+    padding-left: 20px;
+  }
+
+  .movieInfo--title {
+    font-size: 1.5rem;
+  }
+
+  .movieInfo--information-block {
+    font-size: 1.3rem;
+  }
+
+  .movieInfo--exitInfo {
+    height: 20px;
+    width: 20px;
+  }
+
+  .movie-text {
+    padding-right: 20px;
   }
 }
