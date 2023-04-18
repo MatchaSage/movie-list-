@@ -2,7 +2,6 @@ import React from "react";
 
 export default function MovieInfo(props) {
   let rating = catchRatingError(props.selectedMovie.Ratings);
-  console.log(props.selectedMovie);
   function catchRatingError(ratings) {
     if (ratings[1] !== undefined) {
       let ratingString = ratings[1].Value.split("%")[0];
@@ -68,26 +67,27 @@ export default function MovieInfo(props) {
               Delete
             </button>
 
-            <label className="infoDiv">Watched</label>
-            <input
-              type="checkbox"
-              id="watched"
-              name="watched"
-              className="infoDiv"
-              onChange={() => {
-                console.log("fired");
-                props.setWatched(props.selectedMovie);
-                //Set the selected movie for movie info info to the opposite of the watched attribute
-                //when the watched checkbox is clicked
-                props.setSelectedMovie((prev) => {
-                  return {
-                    ...prev,
-                    watched: !prev.watched,
-                  };
-                });
-              }}
-              checked={props.selectedMovie.watched === false ? false : true}
-            />
+            <div className="infoDiv movieInfo--watched-container">
+              <label className="infoDiv">Watched</label>
+              <input
+                type="checkbox"
+                id="watched"
+                name="watched"
+                className="infoDiv"
+                onChange={() => {
+                  props.setWatched(props.selectedMovie);
+                  //Set the selected movie for movie info info to the opposite of the watched attribute
+                  //when the watched checkbox is clicked
+                  props.setSelectedMovie((prev) => {
+                    return {
+                      ...prev,
+                      watched: !prev.watched,
+                    };
+                  });
+                }}
+                checked={props.selectedMovie.watched === false ? false : true}
+              />
+            </div>
           </div>
         )}
       </div>

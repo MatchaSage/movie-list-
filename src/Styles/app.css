@@ -37,6 +37,10 @@ header h2 {
   cursor: pointer;
 }
 
+header h2:hover {
+  color: rgb(217, 78, 78);
+}
+
 footer {
   display: flex;
   flex-direction: column;

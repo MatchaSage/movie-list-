@@ -64,6 +64,24 @@
   background-color: red;
 }
 
+.movieInfo--delete-watched {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.movieInfo--watched-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.5rem;
+}
+
+.movieInfo--watched-container input {
+  width: 30px;
+  height: 50px;
+}
+
 fieldset {
   display: flex;
   gap: 10px;
