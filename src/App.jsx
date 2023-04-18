@@ -131,8 +131,10 @@ export default function App() {
   useEffect(() => {
     if (document.body.clientHeight > window.innerHeight) {
       document.querySelector("header").style.paddingLeft = "17px";
+      document.querySelector("header").style.gap = "35px";
     } else {
       document.querySelector("header").style.paddingLeft = "0px";
+      document.querySelector("header").style.gap = "0px";
     }
   }, [showPage, movieList]);
 
