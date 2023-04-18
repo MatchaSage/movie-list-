@@ -215,11 +215,8 @@ export default function List(props) {
     //Returns each filter criteria to default
     setSearch("");
     setWatched("all");
-    document.getElementById("watched-select").value = "all";
     setGenre("all");
-    document.getElementById("genre-select").value = "all";
     setRating("none");
-    document.getElementById("rating-select").value = "none";
     setDirector("");
     setRandom(false);
     localStorage.setItem("random", "null");
@@ -268,6 +265,7 @@ export default function List(props) {
                       );
                       setWatched(option.value);
                     }}
+                    value={watched}
                   >
                     <option value="all">All</option>
                     <option value="notWatched">Not Watched</option>
@@ -287,6 +285,7 @@ export default function List(props) {
                         document.querySelector(".filter-item-genre");
                       setGenre(option.value);
                     }}
+                    value={genre}
                   >
                     <option value="all">All</option>
                     <option value="action">Action</option>
@@ -314,6 +313,7 @@ export default function List(props) {
                       );
                       setRating(option.value);
                     }}
+                    value={rating}
                   >
                     <option value="none">None</option>
                     <option value="best">Best</option>

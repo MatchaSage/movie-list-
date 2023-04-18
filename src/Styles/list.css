@@ -178,6 +178,7 @@ button.reset-button {
 .list-items-card img {
   height: 100%;
   width: 100%;
+  cursor: pointer;
 }
 
 .hover {
@@ -228,6 +229,11 @@ button.reset-button {
 .info-container .rating-container {
   padding: 5px;
   border-radius: 5px;
+}
+
+.info-container h3,
+.info-container h4 {
+  cursor: default;
 }
 
 /**ListItems.jsx end**/

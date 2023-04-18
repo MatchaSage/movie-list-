@@ -1,8 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .movieInfo {
   display: flex;
   flex-direction: column;
@@ -35,6 +30,7 @@
   width: 30px;
   height: 30px;
   border: none;
+  background-color: red;
 }
 
 .movieInfo--buttons {
