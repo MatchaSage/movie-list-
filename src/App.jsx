@@ -134,7 +134,6 @@ export default function App() {
   //Use effect to check if the scrollbar is on the page, and style the header accordingly.
   //Don't add to mobile
   useEffect(() => {
-    console.log(screen.width);
     if (document.body.clientHeight > window.innerHeight && screen.width > 675) {
       document.querySelector("header").style.paddingLeft = "17px";
       document.querySelector("header").style.gap = "35px";

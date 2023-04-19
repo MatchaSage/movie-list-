@@ -59,31 +59,42 @@ input {
 }
 
 .movie-card--addMovieButton {
-  background-color: green;
+  background-color: rgb(44, 123, 44);
   border: none;
+  border-radius: 5px;
   width: 100px;
   height: 29px;
   font-size: 1.1rem;
 }
 
+.movie-card--addMovieButton:hover {
+  background-color: rgb(217, 78, 78);
+}
+
+.movie-card--addMovieButton:active {
+  background-color: rgb(217, 78, 78);
+  box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  transform: scale(0.98);
+}
+
 .movie-rating-90 {
   color: white;
-  background-color: blue;
+  background-color: rgb(70, 70, 253);
 }
 
 .movie-rating-80 {
-  background-color: green;
+  background-color: rgb(37, 118, 37);
 }
 .movie-rating-70 {
-  background-color: yellow;
+  background-color: rgb(247, 247, 69);
 }
 
 .movie-rating-60 {
-  background-color: orange;
+  background-color: rgb(249, 190, 80);
 }
 
 .movie-rating-below-60 {
-  background-color: red;
+  background-color: rgb(255, 37, 37);
 }
 
 .movie-rating-90,
@@ -95,4 +106,5 @@ input {
   padding-left: 2px;
   padding-right: 2px;
   font-size: 1.5rem;
+  cursor: default;
 }
