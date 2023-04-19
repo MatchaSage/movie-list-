@@ -73,8 +73,6 @@ input {
 
 .movie-card--addMovieButton:active {
   background-color: rgb(217, 78, 78);
-  box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  transform: scale(0.98);
 }
 
 .movie-rating-90 {
