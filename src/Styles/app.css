@@ -56,3 +56,15 @@ footer {
 footer a {
   color: #551a8b;
 }
+
+@media screen and (max-width: 675px) {
+  header {
+    padding-left: 0px;
+    gap: 0px;
+  }
+}
+
+button:active {
+  box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  transform: scale(0.98);
+}

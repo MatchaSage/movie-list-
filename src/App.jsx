@@ -132,8 +132,9 @@ export default function App() {
     setSelectedMovie(movie);
   }
   //Use effect to check if the scrollbar is on the page, and style the header accordingly.
+  //Don't add to mobile
   useEffect(() => {
-    if (document.body.clientHeight > window.innerHeight) {
+    if (document.body.clientHeight > window.innerHeight && screen.width > 675) {
       document.querySelector("header").style.paddingLeft = "17px";
       document.querySelector("header").style.gap = "35px";
     } else {
