@@ -56,3 +56,10 @@ footer {
 footer a {
   color: #551a8b;
 }
+
+@media screen and (max-width: 675px) {
+  header {
+    padding-left: 0px;
+    gap: 0px;
+  }
+}
