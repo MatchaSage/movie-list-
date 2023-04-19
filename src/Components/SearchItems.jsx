@@ -42,8 +42,8 @@ export default function searchItems(props) {
   }
 
   function truncateTitle(title) {
-    if (title.length > 46) {
-      return `${title.slice(0, 46)}...`;
+    if (title.length > 35) {
+      return `${title.slice(0, 35)}...`;
     } else {
       return title;
     }
@@ -52,6 +52,11 @@ export default function searchItems(props) {
   return (
     <div className="movie-card" onClick={handleClick}>
       <div>
+        <img
+          src={props.movie.Poster}
+          alt="Movie Poster"
+          className="movie-card--poster"
+        ></img>
         <span className="movie-card--title">
           {truncateTitle(props.movie.Title)}
         </span>

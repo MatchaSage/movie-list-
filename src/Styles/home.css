@@ -8,8 +8,8 @@
 }
 
 .home > h1 {
-  font-size: 5rem;
-  margin-bottom: 50px;
+  font-size: 4rem;
+  margin-bottom: 20px;
 }
 
 .home--search-bar {
@@ -29,7 +29,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 50%;
+  width: 70%;
   margin-top: 10px;
   height: 70%;
   background-color: rgb(197, 193, 193);
@@ -38,6 +38,10 @@
   padding-left: 15px;
   padding-top: 15px;
   padding-right: 15px;
+}
+
+.movie-card:last-child {
+  border: none;
 }
 
 input {
@@ -64,6 +68,11 @@ input {
   width: 100px;
   height: 29px;
   font-size: 1.1rem;
+}
+
+.movie-card--poster {
+  height: 95px;
+  width: 75px;
 }
 
 .movie-rating-90 {
@@ -95,4 +104,27 @@ input {
   padding-left: 2px;
   padding-right: 2px;
   font-size: 1.5rem;
+}
+
+@media screen and (max-width: 900px) {
+  .search-bar-results {
+    font-size: 1.2rem;
+  }
+
+  .movie-card--rating {
+    font-size: 1.2rem;
+  }
+
+  .home > h1 {
+    font-size: 2rem;
+  }
+
+  .search-bar-results {
+    background-color: rgb(241, 241, 235);
+    width: 100%;
+  }
+
+  .movie-card--addMovieButton {
+    width: 50px;
+  }
 }
