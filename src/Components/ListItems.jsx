@@ -47,7 +47,8 @@ export default function ListItems(props) {
     filter: isHover ? "brightness(50%)" : "none",
   };
 
-  function movieBackgroundClick() {
+  function movieBackgroundClick(e) {
+    e.stopPropagation();
     props.showInfo();
     props.setSelectedMovie(props.movie);
   }

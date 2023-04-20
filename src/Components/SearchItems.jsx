@@ -35,6 +35,8 @@ export default function searchItems(props) {
   }
 
   function handleClick(e) {
+    //Call stopPropagation because without it movie info shows up quick enough for the onclick event to fire on movieinfo itself.
+    e.stopPropagation();
     if (e.target.className != "movie-card--addMovieButton") {
       props.showInfo();
     }
