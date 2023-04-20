@@ -8,8 +8,12 @@
   padding-left: 100px;
   width: 80%;
   height: 650px;
-  background-color: grey;
+  background-color: rgb(217, 78, 78);
   z-index: 3;
+}
+
+.bold {
+  font-weight: 600;
 }
 
 .movieInfo--information-block {
@@ -26,15 +30,22 @@
 }
 
 .movieInfo--exitInfo {
+  width: 60px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+}
+
+.mobile-x-styling {
   align-self: flex-end;
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 40px;
   border: none;
   background-color: transparent;
 }
 
 .movieInfo--exitInfo:hover {
-  background-color: rgb(255, 51, 51);
+  background-color: rgb(253, 0, 0);
   transition: background-color 0.5s ease;
 }
 
@@ -71,7 +82,7 @@
 }
 
 .movieInfo--deleteMovie {
-  background-color: rgb(255, 51, 51);
+  background-color: rgb(255, 10, 10);
 }
 
 .movieInfo--delete-watched {
@@ -104,6 +115,8 @@ fieldset {
   .movieInfo {
     overflow-y: scroll;
     padding-left: 20px;
+    height: 80%;
+    width: 100%;
   }
 
   .movieInfo--title {
@@ -115,8 +128,26 @@ fieldset {
   }
 
   .movieInfo--exitInfo {
-    height: 20px;
-    width: 20px;
+    position: fixed;
+    background-color: transparent;
+    width: 100px;
+    height: 70px;
+  }
+
+  .movieInfo--exitInfo:hover {
+    background-color: transparent;
+  }
+
+  .mobile-x-styling {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: rgb(255, 0, 0);
+    align-self: flex-end;
+    width: 30px;
+    height: 30px;
+    border: none;
   }
 
   .movie-text {
