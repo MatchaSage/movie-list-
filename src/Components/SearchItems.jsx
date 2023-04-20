@@ -62,7 +62,7 @@ export default function searchItems(props) {
 
   return (
     <div className="movie-card" onClick={handleClick}>
-      <div>
+      <div className="movie-card--poster-side">
         <img
           src={checkPoster()}
           alt="Movie Poster"

@@ -52,13 +52,14 @@ input {
 .movie-card {
   display: flex;
   gap: 15px;
+  height: auto;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgb(70, 70, 70);
   padding-bottom: 5px;
 }
 
-.movie-card div {
+.movie-card--poster-side {
   display: flex;
   gap: 20px;
 }
@@ -136,31 +137,19 @@ input {
   .search-bar-results {
     background-color: rgb(241, 241, 235);
     width: 100%;
+    font-size: 1.2rem;
   }
 
   .movie-card--addMovieButton {
     width: 50px;
   }
-}
 
-@media screen and (max-height: 800px) {
   .movie-card--poster {
-    height: 75px;
+    height: 1%;
     width: 60px;
   }
 
-  .search-bar-results {
-    font-size: 1.2rem;
-  }
-
-  .movie-card--rating {
-    font-size: 1.2rem;
-  }
-  .search-bar-results {
-    font-size: 1.2rem;
-  }
-
-  .movie-card--rating {
-    font-size: 1.2rem;
+  .movie-card {
+    height: 17%;
   }
 }
