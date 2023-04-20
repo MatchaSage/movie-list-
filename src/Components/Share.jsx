@@ -9,9 +9,9 @@ export default function Share(props) {
 
     try {
       await navigator.clipboard.writeText(JSON.stringify(imdbArray));
-      console.log("content copied to clipboard");
+      displayTemporarily(".copy-confirm");
     } catch (err) {
-      console.log("Failed to copy: ", err);
+      displayTemporarily(".copy-fail");
     }
   }
 
@@ -32,9 +32,18 @@ export default function Share(props) {
       for (let i = 0; i < importValue.length; i++) {
         addMovie(importValue[i]);
       }
+      displayTemporarily(".import-confirm");
     } catch (err) {
-      console.log("Invalid import value", err);
+      displayTemporarily(".import-fail");
     }
+  }
+
+  function displayTemporarily(className) {
+    const element = document.querySelector(className);
+    element.style.display = "flex";
+    setTimeout(() => {
+      element.style.display = "none";
+    }, "2000");
   }
 
   return (
@@ -49,6 +58,12 @@ export default function Share(props) {
         <button type="button" className="copy-button" onClick={copyContent}>
           Copy
         </button>
+        <div className="copy-confirm">
+          <span>Your text was copied!</span>
+        </div>
+        <div className="copy-fail fail">
+          <span>Your text was not copied</span>
+        </div>
       </div>
       <div className="import-row">
         <label htmlFor="import">Import</label>
@@ -62,6 +77,12 @@ export default function Share(props) {
         >
           Import
         </button>
+        <div className="import-confirm">
+          <span>Import Successful!</span>
+        </div>
+        <div className="import-fail fail">
+          <span>Import Unsuccessful!</span>
+        </div>
       </div>
     </div>
   );

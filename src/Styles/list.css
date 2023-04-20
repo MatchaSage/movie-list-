@@ -40,6 +40,10 @@
   right: 100px;
 }
 
+.filter-buttons:hover {
+  background-color: #2abbd5;
+}
+
 .filter-buttons span {
   font-size: 1.5rem;
 }
