@@ -152,4 +152,8 @@ input {
   .movie-card {
     height: 17%;
   }
+
+  .home--search-bar {
+    font-size: 1.3rem;
+  }
 }

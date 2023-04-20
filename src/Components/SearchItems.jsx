@@ -45,7 +45,11 @@ export default function searchItems(props) {
   }
 
   function truncateTitle(title) {
-    if (title.length > 35) {
+    let mobileWidth = window.innerWidth;
+
+    if (mobileWidth <= 300) {
+      return `${title.slice(0, 20)}...`;
+    } else if (title.length > 35) {
       return `${title.slice(0, 35)}...`;
     } else {
       return title;
