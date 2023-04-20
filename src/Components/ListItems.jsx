@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import backupImage from "../img/backup-poster.jpg";
 
 export default function ListItems(props) {
   const [isHover, setIsHover] = useState(false);
@@ -53,6 +54,14 @@ export default function ListItems(props) {
     props.setSelectedMovie(props.movie);
   }
 
+  function checkPoster() {
+    if (props.movie.Poster === "N/A") {
+      return backupImage;
+    } else {
+      return props.movie.Poster;
+    }
+  }
+
   return (
     <div className="list-items">
       <div
@@ -61,7 +70,7 @@ export default function ListItems(props) {
         onMouseLeave={handleHoverLeave}
       >
         <img
-          src={props.movie.Poster}
+          src={checkPoster()}
           alt="poster"
           style={elementDarken}
           onClick={movieBackgroundClick}
