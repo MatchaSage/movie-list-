@@ -29,7 +29,7 @@
 .search-bar-results {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  /* gap: 20px; */
   width: 70%;
   margin-top: 10px;
   min-height: 70%;
@@ -135,6 +135,7 @@ input {
 
   .search-bar-results {
     font-size: 1.2rem;
+    gap: 20px;
   }
 
   .movie-card--rating {

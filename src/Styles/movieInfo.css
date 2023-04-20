@@ -10,7 +10,7 @@
   width: 80%;
   height: 650px;
   background-color: rgb(217, 78, 78);
-  z-index: 3;
+  z-index: 1;
 }
 
 .bold {
