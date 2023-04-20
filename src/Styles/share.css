@@ -8,7 +8,7 @@
 }
 
 .share h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 20px;
 }
 
@@ -43,6 +43,21 @@
   background-color: rgb(217, 78, 78);
 }
 
+.copy-confirm {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 2px black solid;
+  width: 200px;
+  height: 30px;
+  background-color: rgb(83, 233, 19);
+}
+
+.copy-fail.fail {
+  display: none;
+}
+
 .import-row {
   display: flex;
   flex-direction: column;
@@ -75,4 +90,30 @@
 
 .import-row button:hover {
   background-color: rgb(217, 78, 78);
+}
+
+.import-confirm {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 2px black solid;
+  width: 200px;
+  height: 30px;
+  background-color: rgb(83, 233, 19);
+}
+
+.import-fail.fail {
+  display: none;
+}
+
+.fail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 2px black solid;
+  width: 200px;
+  height: 30px;
+  background-color: rgb(234, 17, 17);
 }

@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: flex-start;
   position: fixed;
+  border-radius: 5px;
   top: 100px;
   bottom: 100px;
   padding-left: 100px;
@@ -47,6 +48,11 @@
 .movieInfo--exitInfo:hover {
   background-color: rgb(253, 0, 0);
   transition: background-color 0.5s ease;
+}
+
+.movieInfo--exitInfo:active {
+  box-shadow: none;
+  transform: none;
 }
 
 .movieInfo--buttons {
@@ -116,11 +122,12 @@ fieldset {
     overflow-y: scroll;
     padding-left: 20px;
     height: 80%;
-    width: 100%;
+    width: 95%;
   }
 
-  .movieInfo--title {
+  .movieInfo--title.movieInfo--title {
     font-size: 1.5rem;
+    padding-right: 35px;
   }
 
   .movieInfo--information-block {
