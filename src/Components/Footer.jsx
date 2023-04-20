@@ -15,9 +15,26 @@ export default function Footer() {
         Website by: <a href="https://github.com/CrosscutX">Crosscutx</a>{" "}
         <a href="https://github.com/MatchaSage">MatchaSage</a>
       </p>
-      <a href="https://www.flaticon.com/free-icons/filter" title="filter icons">
-        Filter icons created by Lizel Arina - Flaticon
-      </a>
+      <p>
+        Icons created by{" "}
+        <a
+          href="https://www.flaticon.com/free-icons/filter"
+          title="filter icons"
+        >
+          Lizel Arina
+        </a>
+        ,&nbsp;
+        <a
+          href="https://www.flaticon.com/free-icons/home-button"
+          title="home button icons"
+        >
+          Freepik
+        </a>
+        , and&nbsp;
+        <a href="https://www.flaticon.com/free-icons/share" title="share icons">
+          Bankume
+        </a>
+      </p>
     </footer>
   );
 }
