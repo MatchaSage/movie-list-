@@ -12,6 +12,10 @@
   z-index: 3;
 }
 
+.bold {
+  font-weight: 600;
+}
+
 .movieInfo--information-block {
   display: flex;
   flex-direction: column;
@@ -111,7 +115,7 @@ fieldset {
   .movieInfo {
     overflow-y: scroll;
     padding-left: 20px;
-    min-height: 100vh;
+    height: 80%;
     width: 100%;
   }
 

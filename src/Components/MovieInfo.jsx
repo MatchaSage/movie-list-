@@ -21,31 +21,32 @@ export default function MovieInfo(props) {
           X
         </button>
       </div>
-      <span className="movie-text infoDiv movieInfo--title">
+      <span className="movie-text infoDiv movieInfo--title bold">
         {props.selectedMovie.Title}
       </span>
       <div className="movie-text infoDiv movieInfo--information-block">
         <span className="movie-text infoDiv movieInfo--description">
-          Description: {props.selectedMovie.Plot}
+          <span className="bold">Description:</span> {props.selectedMovie.Plot}
         </span>
         <span className="movie-text infoDiv movieInfo--director">
-          Director: {props.selectedMovie.Director}
+          <span className="bold">Director:</span> {props.selectedMovie.Director}
         </span>
         <span className="movie-text infoDiv movieInfo--writer">
-          Writer: {props.selectedMovie.Writer}
+          <span className="bold">Writer:</span> {props.selectedMovie.Writer}
         </span>
         <span className="movie-text infoDiv movieInfo--actors">
-          Actors: {props.selectedMovie.Actors}
+          <span className="bold">Actors:</span> {props.selectedMovie.Actors}
         </span>
         <span className="movie-text infoDiv movieInfo--realeaseDate">
-          Release: {props.selectedMovie.Released}
+          <span className="bold">Release:</span> {props.selectedMovie.Released}
         </span>
         <span className="movie-text infoDiv movieInfo--ratingRottenTomatoes">
-          Rotten Tomatoes: &nbsp;
+          <span className="bold">Rotten Tomatoes:</span> &nbsp;
           {rating}
         </span>
         <span className="movie-text infoDiv movieInfo--boxOffice">
-          Boxoffice: {props.selectedMovie.BoxOffice}
+          <span className="bold">Boxoffice:</span>{" "}
+          {props.selectedMovie.BoxOffice}
         </span>
       </div>
 
