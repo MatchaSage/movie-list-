@@ -73,13 +73,16 @@ export default function App() {
       setShowFilter(true);
     }
   }
+
   //Functions to set/control the text boxes.
   function homeSearchSetter(text) {
     setHomeSearchBar(text);
   }
+
   function listSearchSetter(text) {
     setListSearchBar(text);
   }
+
   //Functions to set the arrays for movies.
   function movieListAdd(newMovie) {
     if (movieList !== undefined) {
@@ -131,6 +134,7 @@ export default function App() {
   function selectedMovieSetter(movie) {
     setSelectedMovie(movie);
   }
+
   //Use effect to check if the scrollbar is on the page, and style the header accordingly.
   //Don't add to mobile
   useEffect(() => {

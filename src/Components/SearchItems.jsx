@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import backupImage from "../img/backup-poster.jpg";
 
 export default function searchItems(props) {
   let rating = catchRatingError(props.movie.Ratings);
@@ -51,11 +52,19 @@ export default function searchItems(props) {
     }
   }
 
+  function checkPoster() {
+    if (props.movie.Poster === "N/A") {
+      return backupImage;
+    } else {
+      return props.movie.Poster;
+    }
+  }
+
   return (
     <div className="movie-card" onClick={handleClick}>
       <div>
         <img
-          src={props.movie.Poster}
+          src={checkPoster()}
           alt="Movie Poster"
           className="movie-card--poster"
         ></img>

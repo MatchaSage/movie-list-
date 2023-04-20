@@ -53,8 +53,16 @@ footer {
   color: white;
 }
 
-footer a {
+footer a:hover {
   color: #551a8b;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: rgb(241, 241, 235);
 }
 
 @media screen and (max-width: 675px) {
