@@ -37,6 +37,13 @@ header h2 {
   cursor: pointer;
 }
 
+.home-img,
+.list-img,
+.share-img {
+  height: 40px;
+  width: 40px;
+}
+
 header h2:hover {
   color: rgb(217, 78, 78);
 }
