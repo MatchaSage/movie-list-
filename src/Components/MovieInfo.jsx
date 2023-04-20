@@ -13,9 +13,14 @@ export default function MovieInfo(props) {
 
   return (
     <div className="infoDiv movieInfo">
-      <button className="movieInfo--exitInfo" onClick={props.showInfo}>
-        X
-      </button>
+      {
+        //This mobile styling div helps us make the button bigger on mobile while keeping it visually small, this helps with usability of our app
+      }
+      <div className="mobile-x-styling">
+        <button className="movieInfo--exitInfo" onClick={props.showInfo}>
+          X
+        </button>
+      </div>
       <span className="movie-text infoDiv movieInfo--title">
         {props.selectedMovie.Title}
       </span>
