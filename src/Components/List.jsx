@@ -22,6 +22,7 @@ export default function List(props) {
 
   useEffect(() => {
     let handler = (e) => {
+      e.stopPropagation();
       //After the filter button is hit once, the next time the dropdown dissapears it will be null instead of undefined.
       if (dropRef.current !== undefined && dropRef.current !== null) {
         //Basically saying if both the filter button and the menu aren't clicked on.
@@ -35,9 +36,9 @@ export default function List(props) {
       }
     };
 
-    document.addEventListener("mousedown", handler);
+    document.addEventListener("click", handler);
     return () => {
-      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("click", handler);
     };
   }, [props.showFilter]);
 
