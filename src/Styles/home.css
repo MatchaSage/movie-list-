@@ -29,7 +29,7 @@
 .search-bar-results {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   width: 70%;
   margin-top: 10px;
   min-height: 70%;
@@ -51,12 +51,13 @@ input {
 
 .movie-card {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   height: auto;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgb(70, 70, 70);
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 15px;
 }
 
 .movie-card--poster-side {
@@ -118,6 +119,11 @@ input {
   cursor: default;
 }
 
+.rating-add-block {
+  display: flex;
+  gap: 10px;
+}
+
 @media screen and (max-width: 900px) {
   .search-bar-results {
     font-size: 1.2rem;
@@ -145,11 +151,22 @@ input {
   }
 
   .movie-card--poster {
-    height: 1%;
-    width: 60px;
+    align-self: center;
+    height: 50px;
+    width: auto;
   }
 
   .movie-card {
-    height: 17%;
+    height: 15%;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .movie-card--title {
+    font-size: 0.9rem;
   }
 }
