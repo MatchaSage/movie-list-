@@ -10,7 +10,7 @@
   width: 80%;
   height: 650px;
   background-color: rgb(217, 78, 78);
-  z-index: 1;
+  z-index: 2;
 }
 
 .bold {
@@ -128,6 +128,7 @@ fieldset {
   .movieInfo--title.movieInfo--title {
     font-size: 1.5rem;
     padding-right: 35px;
+    padding-top: 10px;
   }
 
   .movieInfo--information-block {
