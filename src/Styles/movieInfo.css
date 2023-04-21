@@ -1,5 +1,6 @@
 .movieInfo {
   display: flex;
+  overflow-y: scroll;
   flex-direction: column;
   justify-content: flex-start;
   position: fixed;
@@ -119,7 +120,6 @@ fieldset {
 /*Media Query*/
 @media screen and (max-width: 675px) {
   .movieInfo {
-    overflow-y: scroll;
     padding-left: 20px;
     height: 80%;
     width: 95%;
