@@ -50,6 +50,7 @@ input {
 }
 
 .movie-card {
+  cursor: pointer;
   display: flex;
   gap: 10px;
   height: auto;
@@ -80,6 +81,7 @@ input {
 }
 
 .movie-card--addMovieButton:hover {
+  cursor: pointer;
   background-color: rgb(217, 78, 78);
 }
 
@@ -116,7 +118,7 @@ input {
   padding-left: 2px;
   padding-right: 2px;
   font-size: 1.5rem;
-  cursor: default;
+  cursor: pointer;
 }
 
 .rating-add-block {
@@ -141,6 +143,7 @@ input {
   .movie-card--rating {
     font-size: 1.2rem;
   }
+
   .search-bar-results {
     font-size: 1.2rem;
   }
