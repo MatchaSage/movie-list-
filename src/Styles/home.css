@@ -141,6 +141,7 @@ input {
   }
 
   .movie-card--rating {
+    color: black;
     font-size: 1.2rem;
   }
 
