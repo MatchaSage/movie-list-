@@ -117,3 +117,9 @@
   height: 30px;
   background-color: rgb(234, 17, 17);
 }
+
+@media screen and (max-width: 675px) {
+  .share h1 {
+    font-size: 3rem;
+  }
+}
