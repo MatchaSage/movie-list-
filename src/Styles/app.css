@@ -81,6 +81,10 @@ button {
   color: black;
 }
 
+select {
+  color: black;
+}
+
 @media screen and (max-width: 675px) {
   header {
     padding-left: 0px;
