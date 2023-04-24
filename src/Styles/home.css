@@ -59,6 +59,7 @@ input {
   border-bottom: 1px solid rgb(70, 70, 70);
   padding-top: 10px;
   padding-bottom: 10px;
+  cursor: pointer;
 }
 
 .movie-card--arrow {
@@ -85,6 +86,7 @@ input {
   width: 100px;
   height: 29px;
   font-size: 1.1rem;
+  cursor: pointer;
 }
 
 .movie-card--poster {
@@ -129,7 +131,7 @@ input {
   padding-left: 2px;
   padding-right: 2px;
   font-size: 1.5rem;
-  cursor: default;
+  cursor: pointer;
 }
 
 .rating-add-block {
