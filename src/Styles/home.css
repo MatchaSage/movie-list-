@@ -50,15 +50,27 @@ input {
 }
 
 .movie-card {
-  cursor: pointer;
   display: flex;
+  position: relative;
   gap: 10px;
   height: auto;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgb(70, 70, 70);
   padding-top: 10px;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
+}
+
+.movie-card--arrow {
+  height: 8px;
+  width: 8px;
+  position: absolute;
+  left: 50%;
+  top: 85%;
+}
+
+.movie-card:hover .movie-card--title {
+  color: rgb(29, 29, 218);
 }
 
 .movie-card--poster-side {
@@ -81,7 +93,6 @@ input {
 }
 
 .movie-card--addMovieButton:hover {
-  cursor: pointer;
   background-color: rgb(217, 78, 78);
 }
 
@@ -118,7 +129,7 @@ input {
   padding-left: 2px;
   padding-right: 2px;
   font-size: 1.5rem;
-  cursor: pointer;
+  cursor: default;
 }
 
 .rating-add-block {
@@ -141,10 +152,8 @@ input {
   }
 
   .movie-card--rating {
-    color: black;
     font-size: 1.2rem;
   }
-
   .search-bar-results {
     font-size: 1.2rem;
   }
@@ -179,6 +188,10 @@ input {
 
   .home--search-bar {
     font-size: 1.3rem;
+  }
+
+  .movie-card:last-child {
+    border-bottom: 1px solid rgb(70, 70, 70);
   }
 }
 

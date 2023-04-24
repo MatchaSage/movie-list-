@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import backupImage from "../img/backup-poster.jpg";
+import downArrowImg from "../img/down-arrow.png";
 
 export default function searchItems(props) {
+  let screenWidth = window.innerWidth;
   let rating = catchRatingError(props.movie.Ratings);
   let ratingColor = setRatingColor(rating);
 
@@ -76,6 +78,15 @@ export default function searchItems(props) {
           {truncateTitle(props.movie.Title)}
         </span>
       </div>
+
+      {screenWidth <= 900 ? (
+        <img
+          src={downArrowImg}
+          alt="Expand movie"
+          className="movie-card--arrow"
+        ></img>
+      ) : null}
+
       <div className="rating-add-block">
         <span className={`movie-card--rating" ${ratingColor}`}>{rating}</span>
         <button
