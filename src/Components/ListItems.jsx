@@ -47,6 +47,20 @@ export default function ListItems(props) {
     transition: isHover ? "all 0.4s ease" : "none",
     filter: isHover ? "brightness(50%)" : "none",
   };
+  //Check for the screen size to show hover styling.
+  function mobileDarkenStyleCheck() {
+    let mobileWidth = window.innerWidth;
+    if (mobileWidth >= 650) {
+      return elementDarken;
+    }
+  }
+  //Check for the screen size to show hover styling.
+  function mobileDisplayStyleCheck() {
+    let mobileWidth = window.innerWidth;
+    if (mobileWidth >= 650) {
+      return elementDisplay;
+    }
+  }
 
   function movieBackgroundClick(e) {
     e.stopPropagation();
@@ -72,10 +86,10 @@ export default function ListItems(props) {
         <img
           src={checkPoster()}
           alt="poster"
-          style={elementDarken}
+          style={mobileDarkenStyleCheck()}
           onClick={movieBackgroundClick}
         />
-        <div className="watched-container" style={elementDisplay}>
+        <div className="watched-container" style={mobileDisplayStyleCheck()}>
           <label>Watched</label>
           <input
             type="checkbox"
@@ -87,7 +101,7 @@ export default function ListItems(props) {
             checked={props.movie.watched === false ? false : true}
           />
         </div>
-        <div className="button-container" style={elementDisplay}>
+        <div className="button-container" style={mobileDisplayStyleCheck()}>
           <button
             className="delete-btn"
             type="button"
