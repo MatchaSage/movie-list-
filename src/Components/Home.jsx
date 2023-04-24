@@ -57,7 +57,7 @@ export default function Home(props) {
   });
   return (
     <div className="home">
-      <h1>The List</h1>
+      <h1>Movie Search</h1>
       <input
         className="home--search-bar"
         type="text"

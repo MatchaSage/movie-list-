@@ -225,7 +225,7 @@ export default function List(props) {
 
   return (
     <div className="list">
-      <h1>Your List</h1>
+      <h1>The List</h1>
       <div className="filter-row">
         <div className="filter-container">
           <div
