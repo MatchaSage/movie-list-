@@ -130,7 +130,7 @@ export default function ListItems(props) {
         </div>
       </div>
       <div className="info-container">
-        <h3>{props.movie.Title}</h3>
+        <h3 onClick={movieBackgroundClick}>{props.movie.Title}</h3>
         <div className={"rating-container " + ratingColor}>
           <h4>{rating}</h4>
         </div>
