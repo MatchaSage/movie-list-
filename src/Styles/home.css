@@ -198,6 +198,10 @@ input {
 }
 
 @media screen and (max-width: 300px) {
+  .home h1 {
+    font-size: 2.5rem;
+  }
+
   .movie-card--title {
     font-size: 0.9rem;
   }

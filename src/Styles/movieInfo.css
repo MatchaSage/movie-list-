@@ -24,14 +24,17 @@
   gap: 15px;
   font-size: 1.5rem;
   padding-top: 50px;
+  padding-right: 50px;
 }
 
 .movieInfo--title {
   font-size: 3rem;
   text-align: center;
+  padding-right: 100px;
 }
 
 .movieInfo--exitInfo {
+  position: fixed;
   width: 60px;
   height: 40px;
   border: none;
@@ -47,7 +50,7 @@
 }
 
 .movieInfo--exitInfo:hover {
-  background-color: rgb(253, 0, 0);
+  background-color: rgb(172, 2, 2);
   transition: background-color 0.5s ease;
 }
 
@@ -89,7 +92,7 @@
 }
 
 .movieInfo--deleteMovie {
-  background-color: rgb(255, 10, 10);
+  background-color: rgb(172, 2, 2);
 }
 
 .movieInfo--delete-watched {
@@ -136,7 +139,6 @@ fieldset {
   }
 
   .movieInfo--exitInfo {
-    position: fixed;
     background-color: transparent;
     width: 100px;
     height: 70px;

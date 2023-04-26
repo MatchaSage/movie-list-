@@ -15,10 +15,25 @@ export default function ListItems(props) {
   }
 
   function returnRating() {
+    //check if rotten tomatoes exists
+    let rottenCheck = false;
     for (let i = 0; i < props.movie.Ratings.length; i++) {
       if (props.movie.Ratings[i].Source === "Rotten Tomatoes") {
-        let rating = props.movie.Ratings[i].Value;
-        return rating.substring(0, rating.length - 1);
+        rottenCheck = true;
+      }
+    }
+    if (rottenCheck === true) {
+      for (let i = 0; i < props.movie.Ratings.length; i++) {
+        if (props.movie.Ratings[i].Source === "Rotten Tomatoes") {
+          let rating = props.movie.Ratings[i].Value;
+          return rating.substring(0, rating.length - 1);
+        }
+      }
+    } else {
+      if (props.movie.Metascore !== "N/A") {
+        return props.movie.Metascore;
+      } else {
+        return "";
       }
     }
   }
@@ -32,7 +47,8 @@ export default function ListItems(props) {
       return "movie-rating-70";
     } else if (rating >= 60) {
       return "movie-rating-60";
-    } else if (rating < 60) {
+      //Program was applying the below 60 style to empty strings, so the && rating !== "" fixes that.
+    } else if (rating < 60 && rating !== "") {
       return "movie-rating-below-60";
     } else {
       return "";
