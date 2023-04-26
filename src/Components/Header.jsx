@@ -34,7 +34,7 @@ export default function Header(props) {
       setListHover(false);
     }
   }
-  console.log(listHover);
+
   return (
     <header>
       <img

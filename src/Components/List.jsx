@@ -13,6 +13,7 @@ export default function List(props) {
   let dropRef = useRef();
   let filterRef = useRef();
 
+  console.log(props.movieList);
   //Resets the random number in local storage if we any of my filter state changes.
   //This is done so that the filter menu is still useable after hitting the random button.
   useEffect(() => {
