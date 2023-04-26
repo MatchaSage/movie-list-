@@ -39,7 +39,6 @@ export default function ListItems(props) {
   }
   //Css for this can be found in home
   function returnRatingColor(rating) {
-    console.log(rating);
     if (rating >= 90) {
       return "movie-rating-90";
     } else if (rating >= 80) {
