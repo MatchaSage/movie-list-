@@ -14,14 +14,6 @@ export default function ListItems(props) {
     setIsHover(false);
   }
 
-  function watchedSetter() {
-    if (isWatched === true) {
-      setIsWatched(false);
-    } else if (isWatched === false) {
-      setIsWatched(true);
-    }
-  }
-
   function returnRating() {
     //check if rotten tomatoes exists
     let rottenCheck = false;
