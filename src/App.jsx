@@ -178,7 +178,7 @@ export default function App() {
     let timer = setTimeout(() => {
       async function getMovieIMDBID() {
         const res = await fetch(
-          `http://www.omdbapi.com/?s=${homeSearchBar}&r=json&apikey=8ade757e`
+          `http://www.omdbapi.com/?s=${homeSearchBar.trim()}&r=json&apikey=8ade757e`
         );
         const data = await res.json();
         if (data.Search != undefined) {

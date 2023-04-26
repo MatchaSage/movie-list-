@@ -106,7 +106,7 @@ export default function ListItems(props) {
           onClick={movieBackgroundClick}
         />
         <div className="watched-container" style={mobileDisplayStyleCheck()}>
-          <label>Watched</label>
+          <label onClick={movieBackgroundClick}>Watched</label>
           <input
             type="checkbox"
             id="watched"
