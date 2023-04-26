@@ -3,23 +3,26 @@ import React from "react";
 export default function MovieInfo(props) {
   function setRating() {
     let tmp = "";
-
+    let rottenCheck = false;
     if (props.selectedMovie.Ratings.length > 0) {
       props.selectedMovie.Ratings.forEach((rating) => {
         if (rating.Source == "Rotten Tomatoes") {
           tmp = rating.Value;
-        } else {
-          tmp = props.selectedMovie.Metascore;
+          rottenCheck = true;
         }
       });
-    } else {
+    }
+
+    if (rottenCheck === false) {
       tmp = props.selectedMovie.Metascore;
     }
 
     if (tmp == "N/A") {
       return tmp;
-    } else {
+    } else if (rottenCheck === false) {
       return tmp + "%";
+    } else {
+      return tmp;
     }
   }
 

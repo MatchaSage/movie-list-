@@ -9,15 +9,20 @@ export default function searchItems(props) {
 
   function catchRatingError(ratings) {
     let tmp = "";
+    let rottenCheck = false;
 
     ratings.forEach((rating) => {
       if (rating.Source == "Rotten Tomatoes") {
         tmp = rating.Value;
-      } else if (props.movie.Metascore != "N/A") {
-        tmp = props.movie.Metascore;
+        rottenCheck = true;
       }
     });
 
+    if (rottenCheck === false) {
+      if (props.movie.Metascore != "N/A") {
+        tmp = props.movie.Metascore;
+      }
+    }
     if (tmp != "") {
       return tmp.split("%");
     } else {
