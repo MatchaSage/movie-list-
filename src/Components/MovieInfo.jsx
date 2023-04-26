@@ -1,13 +1,25 @@
 import React from "react";
 
 export default function MovieInfo(props) {
-  let rating = catchRatingError(props.selectedMovie.Ratings);
-  function catchRatingError(ratings) {
-    if (ratings[1] !== undefined) {
-      let ratingString = ratings[1].Value.split("%")[0];
-      return ratingString + "%";
+  function setRating() {
+    let tmp = "";
+
+    if (props.selectedMovie.Ratings.length > 0) {
+      props.selectedMovie.Ratings.forEach((rating) => {
+        if (rating.Source == "Rotten Tomatoes") {
+          tmp = rating.Value;
+        } else {
+          tmp = props.selectedMovie.Metascore;
+        }
+      });
     } else {
-      return "";
+      tmp = props.selectedMovie.Metascore;
+    }
+
+    if (tmp == "N/A") {
+      return tmp;
+    } else {
+      return tmp + "%";
     }
   }
 
@@ -42,7 +54,7 @@ export default function MovieInfo(props) {
         </span>
         <span className="movie-text infoDiv movieInfo--ratingRottenTomatoes">
           <span className="bold">Rotten Tomatoes:</span> &nbsp;
-          {rating}
+          {setRating()}
         </span>
         <span className="movie-text infoDiv movieInfo--boxOffice">
           <span className="bold">Boxoffice:</span>{" "}
