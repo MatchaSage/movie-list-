@@ -177,7 +177,7 @@ input {
   .movie-card--poster {
     align-self: center;
     height: 50px;
-    width: auto;
+    width: 40px;
   }
 
   .movie-card {
