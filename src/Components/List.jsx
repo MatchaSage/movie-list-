@@ -69,6 +69,7 @@ export default function List(props) {
         movie={movie}
         setSelectedMovie={props.setSelectedMovie}
         delete={props.movieListDelete}
+        watched={movie.watched}
         setWatched={props.movieListWatched}
         showInfo={props.showInfo}
       />

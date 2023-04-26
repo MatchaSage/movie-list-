@@ -14,6 +14,14 @@ export default function ListItems(props) {
     setIsHover(false);
   }
 
+  function watchedSetter() {
+    if (isWatched === true) {
+      setIsWatched(false);
+    } else if (isWatched === false) {
+      setIsWatched(true);
+    }
+  }
+
   function returnRating() {
     //check if rotten tomatoes exists
     let rottenCheck = false;
@@ -63,6 +71,14 @@ export default function ListItems(props) {
     transition: isHover ? "all 0.4s ease" : "none",
     filter: isHover ? "brightness(50%)" : "none",
   };
+
+  function darkenClass() {
+    if (props.watched === true) {
+      return "watched-movie";
+    } else {
+      return "";
+    }
+  }
   //Check for the screen size to show hover styling.
   function mobileDarkenStyleCheck() {
     let mobileWidth = window.innerWidth;
@@ -95,7 +111,7 @@ export default function ListItems(props) {
   return (
     <div className="list-items">
       <div
-        className="list-items-card"
+        className={`list-items-card ${darkenClass()}`}
         onMouseEnter={handleHoverEnter}
         onMouseLeave={handleHoverLeave}
       >

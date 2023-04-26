@@ -219,6 +219,10 @@ button.reset-button:hover {
   border-radius: 5px;
 }
 
+.watched-movie {
+  filter: brightness(50%);
+}
+
 .button-container {
   display: none;
   position: absolute;
