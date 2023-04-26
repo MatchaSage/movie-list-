@@ -127,13 +127,43 @@ export default function List(props) {
           return -1;
         }
         //Grab the previous and next rating values and turn them into numbers for comparison
-        let previousRating = prev.Ratings[1].Value;
-        previousRating = previousRating.substring(0, previousRating.length - 1);
-        previousRating = Number(previousRating);
+        let previousRating;
+        let rottenCheck = false;
 
-        let nextRating = next.Ratings[1].Value;
-        nextRating = nextRating.substring(0, nextRating.length - 1);
-        nextRating = Number(nextRating);
+        prev.Ratings.forEach((rating) => {
+          if (rating.Source === "Rotten Tomatoes") {
+            previousRating = rating.Value;
+            previousRating = previousRating.substring(
+              0,
+              previousRating.length - 1
+            );
+            previousRating = Number(previousRating);
+            rottenCheck = true;
+          }
+        });
+        //Check if rotten tomatoes exists, and if not use metascore
+        if (rottenCheck === false) {
+          previousRating = prev.Metascore;
+          previousRating = Number(previousRating);
+        }
+
+        let nextRating;
+        rottenCheck = false;
+        next.Ratings.forEach((rating) => {
+          if (rating.Source === "Rotten Tomatoes") {
+            nextRating = rating.Value;
+            nextRating = nextRating.substring(0, nextRating.length - 1);
+            nextRating = Number(nextRating);
+            rottenCheck = true;
+          }
+        });
+
+        //Check if rotten tomatoes exists, and if not use metascore
+        if (rottenCheck === false) {
+          nextRating = next.Metascore;
+          nextRating = Number(nextRating);
+        }
+
         //-1 unshifts nextRating before previous, 1 pushes it after
         if (previousRating > nextRating) {
           return 1;
@@ -155,14 +185,43 @@ export default function List(props) {
           return -1;
         }
         //Grab the previous and next rating values and turn them into numbers for comparison
-        let previousRating = prev.Ratings[1].Value;
-        previousRating = previousRating.substring(0, previousRating.length - 1);
-        previousRating = Number(previousRating);
+        let previousRating;
+        let rottenCheck = false;
 
-        let nextRating = next.Ratings[1].Value;
-        nextRating = nextRating.substring(0, nextRating.length - 1);
-        nextRating = Number(nextRating);
-        //-1 unshifts nextRating before previous, 1 pushes it after
+        prev.Ratings.forEach((rating) => {
+          if (rating.Source === "Rotten Tomatoes") {
+            previousRating = rating.Value;
+            previousRating = previousRating.substring(
+              0,
+              previousRating.length - 1
+            );
+            previousRating = Number(previousRating);
+            rottenCheck = true;
+          }
+        });
+        //Check if rotten tomatoes exists, and if not use metascore
+        if (rottenCheck === false) {
+          previousRating = prev.Metascore;
+          previousRating = Number(previousRating);
+        }
+
+        let nextRating;
+        rottenCheck = false;
+        next.Ratings.forEach((rating) => {
+          if (rating.Source === "Rotten Tomatoes") {
+            nextRating = rating.Value;
+            nextRating = nextRating.substring(0, nextRating.length - 1);
+            nextRating = Number(nextRating);
+            rottenCheck = true;
+          }
+        });
+
+        //Check if rotten tomatoes exists, and if not use metascore
+        if (rottenCheck === false) {
+          nextRating = next.Metascore;
+          nextRating = Number(nextRating);
+        }
+
         if (previousRating > nextRating) {
           return -1;
         } else if (previousRating < nextRating) {
