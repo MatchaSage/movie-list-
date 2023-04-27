@@ -160,11 +160,12 @@ export default function App() {
       document.removeEventListener("click", movieInfoListener);
     }
   });
-
+  //Use effect to add the movielist to local storage whenever it changes.
   useEffect(() => {
     localStorage.setItem("movies", JSON.stringify(movieList));
   }, [movieList]);
 
+  //Second api call to get the more specific movie data from each of the 5 movies use.
   async function storeIMDBID(IMDBID) {
     const res = await fetch(
       `http://www.omdbapi.com/?i=${IMDBID}&r=json&apikey=8ade757e`
@@ -175,18 +176,29 @@ export default function App() {
 
   //Api call to get movies
   useEffect(() => {
+    let res;
     let timer = setTimeout(() => {
       async function getMovieIMDBID() {
-        const res = await fetch(
-          `http://www.omdbapi.com/?s=${homeSearchBar.trim()}&r=json&apikey=8ade757e`
-        );
+        if (homeSearchBar.length < 3) {
+          res = await fetch(
+            `http://www.omdbapi.com/?t=${homeSearchBar.trim()}&r=json&apikey=8ade757e`
+          );
+        } else {
+          res = await fetch(
+            `http://www.omdbapi.com/?s=${homeSearchBar.trim()}&r=json&apikey=8ade757e`
+          );
+        }
         const data = await res.json();
+
         if (data.Search != undefined) {
           //Empty search results before addings more movies.
           setSearchResults([]);
           data.Search.slice(0, 5).map((movie) => {
             storeIMDBID(movie.imdbID);
           });
+        } else if (data.Title) {
+          setSearchResults([]);
+          storeIMDBID(data.imdbID);
         }
       }
       getMovieIMDBID();
